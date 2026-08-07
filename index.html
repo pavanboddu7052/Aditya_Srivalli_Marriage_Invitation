@@ -10,9 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Dancing+Script:wght@600;700&family=Noto+Sans+Telugu:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <style>
-/* ═══════════════════════════════════════════
-   VARIABLES — Ivory · Royal Blue · Gold
-═══════════════════════════════════════════ */
 :root{
   --royal:#1A3A8F;
   --navy:#0A1628;
@@ -31,9 +28,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Lato',sans-serif;background:var(--ivory);color:#222;overflow-x:hidden}
 img{max-width:100%;display:block}
 
-/* ═══════════════════════════════════════════
-   NAVBAR COUPLE AVATAR LOGO
-═══════════════════════════════════════════ */
+/* NAVBAR */
 .nav-logo-group{display:flex;align-items:center;gap:10px;text-decoration:none}
 .couple-avatar-btn{
   display:inline-flex;align-items:center;
@@ -56,17 +51,7 @@ img{max-width:100%;display:block}
   color:var(--gold);margin-left:8px;letter-spacing:1px;font-weight:700;
 }
 
-/* ═══════════════════════════════════════════
-   SCROLL ENTRANCE
-═══════════════════════════════════════════ */
-@keyframes scrollDrop{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{to{opacity:1}}
-.scroll-enter-anim{animation:scrollDrop .85s cubic-bezier(.2,1.3,.5,1) forwards}
-
-/* ═══════════════════════════════════════════
-   TEMPLE DOOR INTRO
-═══════════════════════════════════════════ */
+/* INTRO DOORS */
 #door-screen{
   position:fixed;inset:0;z-index:9999;background:var(--deep);
   display:flex;perspective:1800px;overflow:hidden;transition:opacity .7s ease;
@@ -118,14 +103,7 @@ img{max-width:100%;display:block}
 }
 #door-screen.opening .door-hint{opacity:0}
 
-/* ═══════════════════════════════════════════
-   PAPYRUS SCROLL OPENING
-═══════════════════════════════════════════ */
-.lspark{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:20;animation:sparkBurst .9s ease forwards}
-@keyframes sparkBurst{0%{opacity:1;transform:translate(0,0) scale(1.3)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}}
-.bloomed .lotus-center{animation:bloomGlow .7s ease forwards}
-@keyframes bloomGlow{0%{box-shadow:0 0 0 5px rgba(212,175,55,.2),0 0 22px rgba(212,175,55,.35)}50%{box-shadow:0 0 0 44px rgba(212,175,55,0),0 0 90px rgba(212,175,55,.75)}100%{box-shadow:0 0 0 5px rgba(212,175,55,.15),0 0 22px rgba(212,175,55,.3)}}
-
+/* SCROLL SCREEN */
 #scroll-screen{
   position:fixed;inset:0;z-index:9000;
   background:radial-gradient(ellipse at 50% 45%,#0D1B4B 0%,#060C22 75%,#020510 100%);
@@ -180,9 +158,7 @@ img{max-width:100%;display:block}
 @keyframes tbounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .pull-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(212,175,55,.65);margin-top:6px;animation:tapPulse 2s ease infinite;white-space:nowrap}
 
-/* ═══════════════════════════════════════════
-   NAVIGATION
-═══════════════════════════════════════════ */
+/* MAIN PAGE & SECTIONS */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
 nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8px 40px;box-shadow:0 2px 18px rgba(0,0,0,.4)}
 .nav-logo{font-family:'Noto Sans Telugu',serif;font-size:.95rem;color:var(--gold);text-decoration:none}
@@ -191,9 +167,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .nav-links a:hover{color:#fff}
 .nav-toggle{background:none;border:none;color:var(--gold);font-size:1.4rem;cursor:pointer;display:none}
 
-/* ═══════════════════════════════════════════
-   HERO — Clean Image Background Only
-═══════════════════════════════════════════ */
 #hero{
   min-height:100vh;
   position:relative;
@@ -231,9 +204,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
 @keyframes hIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-/* ═══════════════════════════════════════════
-   SECTION COMMONS
-═══════════════════════════════════════════ */
 .section{padding:80px 20px;position:relative;overflow:hidden;contain:paint}
 .section-title{text-align:center;margin-bottom:50px}
 .section-title h2{font-family:'Cinzel Decorative',serif;font-size:clamp(1.15rem,3vw,1.9rem);color:var(--royal);margin-bottom:6px}
@@ -244,9 +214,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .reveal-r{opacity:0;transform:translateX(50px);transition:opacity .7s ease,transform .7s ease}
 .reveal.vis,.reveal-l.vis,.reveal-r.vis{opacity:1;transform:none}
 
-/* ═══════════════════════════════════════════
-   MEET THE COUPLE
-═══════════════════════════════════════════ */
 #meet-couple{background:linear-gradient(135deg,#f0f4ff,var(--ivory),#f5f9f0)}
 .couple-wrap{display:flex;gap:32px;max-width:880px;margin:0 auto;flex-wrap:wrap;justify-content:center}
 .char-card{flex:1;min-width:285px;max-width:400px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 38px rgba(26,58,143,.1);transition:transform .3s,box-shadow .3s}
@@ -265,17 +232,13 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .fun-facts li:last-child{border-bottom:none}
 .fact-icon{font-size:1.05rem;flex-shrink:0;margin-top:1px}
 .fact-label{font-weight:700;color:var(--royal);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
-.love-hint{text-align:center;margin-top:38px;font-family:'Dancing Script',cursive;font-size:1rem;color:var(--dgold);opacity:.6;cursor:pointer;transition:opacity .3s}
-.love-hint:hover{opacity:1}
+.love-hint{text-align:center;margin-top:38px;font-family:'Dancing Script',cursive;font-size:1rem;color:var(--dgold);opacity:.8;cursor:pointer;transition:all .3s}
+.love-hint:hover{opacity:1;transform:scale(1.03)}
 
-/* ═══════════════════════════════════════════
-   DATE REVEAL — CURTAIN PULL
-═══════════════════════════════════════════ */
 #date-reveal{background:radial-gradient(ellipse at 50% 30%,#0D1B4B 0%,#060C22 65%,#020510 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
 #date-reveal .section-title h2{color:var(--gold)}
 #date-reveal .tel-sub{color:var(--sky)}
 .dr-sub{font-family:'Dancing Script',cursive;font-size:.95rem;color:rgba(212,175,55,.65);margin-top:5px}
-.lotus-stage{display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto}
 .diya-stage{display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto}
 .diya-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;cursor:pointer;position:relative;padding:20px}
 .diya-emoji-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
@@ -306,9 +269,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .cd-lbl{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:5px;display:block}
 .cd-sep{font-size:2rem;color:var(--gold);padding-bottom:10px}
 
-/* ═══════════════════════════════════════════
-   EVENTS TIMELINE
-═══════════════════════════════════════════ */
 #events{background:linear-gradient(160deg,#0a1628 0%,#060C22 55%,#0a1628 100%);color:#fff;text-align:center}
 #events .section-title h2{color:var(--gold)}
 #events .tel-sub{color:var(--sky)}
@@ -327,9 +287,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .ev-time{font-family:'Playfair Display',serif;font-size:.92rem;color:var(--gold);font-weight:600;margin-bottom:5px}
 .ev-dress{font-size:.76rem;color:rgba(255,255,255,.55);font-style:italic}
 
-/* ═══════════════════════════════════════════
-   CEREMONY
-═══════════════════════════════════════════ */
 #ceremony{background:linear-gradient(160deg,var(--navy) 0%,#0A1020 50%,#050810 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
 #ceremony .section-title h2{color:var(--gold)}
 #ceremony .tel-sub{color:var(--sky)}
@@ -346,9 +303,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .ritual-list{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
 .ritual-item{padding:6px 16px;border-radius:30px;font-size:.8rem;border:1px solid rgba(212,175,55,.3);color:rgba(255,255,255,.8);font-family:'Noto Sans Telugu',serif}
 
-/* ═══════════════════════════════════════════
-   VENUE
-═══════════════════════════════════════════ */
 #venue{background:linear-gradient(135deg,#eef2ff,var(--ivory))}
 .venue-inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
 .venue-block{background:#fff;border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(26,58,143,.08);border:1px solid rgba(212,175,55,.2)}
@@ -371,9 +325,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .btn-out{background:transparent;color:var(--royal);border:2px solid var(--royal)}
 .btn-out:hover{background:var(--royal);color:#fff}
 
-/* ═══════════════════════════════════════════
-   BOOK GALLERY
-═══════════════════════════════════════════ */
 #gallery{background:linear-gradient(180deg,#f0f4ff,var(--ivory))}
 .gallery-note{text-align:center;font-family:'Dancing Script',cursive;font-size:1.05rem;color:var(--dgold);font-style:italic;margin:-18px auto 32px;max-width:500px}
 .book-scene{display:flex;flex-direction:column;align-items:center;gap:22px;max-width:380px;margin:0 auto}
@@ -399,9 +350,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .bk-count{font-family:'Playfair Display',serif;font-size:.88rem;color:var(--dgold);min-width:90px;text-align:center}
 .book-swipe-hint{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(26,58,143,.45);text-align:center}
 
-/* ═══════════════════════════════════════════
-   FINALE
-═══════════════════════════════════════════ */
 #finale{min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(180deg,#060C22 0%,#0A1628 50%,#060C22 100%);color:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 #fw-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
 .finale-inner{position:relative;z-index:2;max-width:680px;padding:40px 20px}
@@ -414,16 +362,10 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .fin-names{font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,3.8vw,2.2rem);color:var(--gold);text-shadow:0 0 28px rgba(212,175,55,.45);margin:20px 0}
 .fin-bless{font-family:'Noto Sans Telugu',serif;font-size:.96rem;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:8px}
 
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
 footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padding:26px 20px;font-size:.8rem}
 .f-logo{font-family:'Noto Sans Telugu',serif;font-size:1.25rem;color:var(--gold);margin-bottom:5px}
 .f-heart{color:var(--sky);display:inline-block;animation:hb 1.5s ease infinite}
 
-/* ═══════════════════════════════════════════
-   MUSIC FAB
-═══════════════════════════════════════════ */
 #music-fab{position:fixed;bottom:24px;right:24px;z-index:8999;width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--royal),var(--mid));border:2px solid var(--gold);cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.45);transition:transform .2s,box-shadow .3s}
 #music-fab:hover{transform:scale(1.1)}
 #music-fab.playing{animation:fabRing 2.4s ease infinite}
@@ -431,9 +373,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 #mlbl{font-size:.42rem;color:var(--gold);font-family:'Lato',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
 @keyframes fabRing{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 0 rgba(212,175,55,.5)}65%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 13px rgba(212,175,55,0)}}
 
-/* ═══════════════════════════════════════════
-   LOVE NOTE MODAL
-═══════════════════════════════════════════ */
+/* FIXED SECRET NOTE MODAL STYLING */
 #love-modal{position:fixed;inset:0;z-index:9800;background:rgba(0,0,0,.65);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px}
 #love-modal.active{display:flex}
 .ln-card{background:linear-gradient(160deg,var(--ivory),var(--cream));border:2px solid var(--gold);border-radius:16px;padding:38px 30px;max-width:450px;width:100%;text-align:center;position:relative;box-shadow:0 18px 70px rgba(26,58,143,.3);animation:lnIn .45s cubic-bezier(.2,1.4,.4,1) forwards}
@@ -444,9 +384,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 .ln-text{font-family:'Dancing Script',cursive;font-size:1.2rem;color:#555;line-height:1.8;font-style:italic}
 .ln-sig{font-family:'Dancing Script',cursive;font-size:.95rem;color:var(--dgold);margin-top:14px}
 
-/* ═══════════════════════════════════════════
-   SCROLLBAR  ·  RESPONSIVE
-═══════════════════════════════════════════ */
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--ivory)}
 ::-webkit-scrollbar-thumb{background:var(--royal);border-radius:3px}
@@ -563,6 +500,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="gold-line"></div>
   </div>
   <div class="couple-wrap">
+    <!-- Groom Card with unique ID -->
     <div class="char-card reveal-l">
       <div class="card-head groom-head">
         <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
@@ -577,6 +515,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         </ul>
       </div>
     </div>
+    <!-- Bride Card with unique ID -->
     <div class="char-card reveal-r">
       <div class="card-head bride-head">
         <div class="portrait-wrap" id="bride-port"><img src="bride.png" alt="Srivalli"></div>
@@ -592,6 +531,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
+  <!-- Clickable Secret Note trigger -->
   <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
 </section>
 
@@ -660,17 +600,34 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-  <div class="dr-cd" id="dr-cd">
-    <p class="cd-tel">వివాహం మరియు రిసెప్షన్‌కు సమయం</p>
-    <p class="cd-en">Time until the celebration</p>
+
+  <!-- COUNTDOWN 1: MARRIAGE -->
+  <div class="dr-cd" id="dr-cd" style="margin-bottom:20px;">
+    <p class="cd-tel">💍 వివాహ మహోత్సవానికి సమయం</p>
+    <p class="cd-en">Time until Marriage Ceremony (27 Aug, 11:39 PM)</p>
     <div class="countdown">
-      <div class="cd-unit"><span class="cd-val" id="cd-d">---</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-unit"><span class="cd-val" id="wed-d">---</span><span class="cd-lbl">Days</span></div>
       <span class="cd-sep">:</span>
-      <div class="cd-unit"><span class="cd-val" id="cd-h">--</span><span class="cd-lbl">Hrs</span></div>
+      <div class="cd-unit"><span class="cd-val" id="wed-h">--</span><span class="cd-lbl">Hrs</span></div>
       <span class="cd-sep">:</span>
-      <div class="cd-unit"><span class="cd-val" id="cd-m">--</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-unit"><span class="cd-val" id="wed-m">--</span><span class="cd-lbl">Min</span></div>
       <span class="cd-sep">:</span>
-      <div class="cd-unit"><span class="cd-val" id="cd-s">--</span><span class="cd-lbl">Sec</span></div>
+      <div class="cd-unit"><span class="cd-val" id="wed-s">--</span><span class="cd-lbl">Sec</span></div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN 2: RECEPTION -->
+  <div class="dr-cd" id="dr-cd-rec">
+    <p class="cd-tel">💐 రిసెప్షన్ వేడుకకు సమయం</p>
+    <p class="cd-en">Time until Reception Ceremony (28 Aug, 06:30 PM)</p>
+    <div class="countdown">
+      <div class="cd-unit"><span class="cd-val" id="rec-d">---</span><span class="cd-lbl">Days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-val" id="rec-h">--</span><span class="cd-lbl">Hrs</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-val" id="rec-m">--</span><span class="cd-lbl">Min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-unit"><span class="cd-val" id="rec-s">--</span><span class="cd-lbl">Sec</span></div>
     </div>
   </div>
 </section>
@@ -776,7 +733,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         <li><span class="vd-icon">🕐</span><span>Muhurtham 11:39 PM</span></li>
       </ul>
       <div class="btn-group">
-        <a class="btn btn-pri" href="https://maps.app.goo.gl/1jzGYRqBJjWh3D9o7" target="_blank" rel="noopener">📍 Directions to Sri RamaChandra Gardens</a>
+        <a class="btn btn-pri" href="https://maps.app.goo.gl/478XJ6aVc7nCMeZm8" target="_blank" rel="noopener">📍 Directions to Sri RamaChandra Gardens</a>
       </div>
     </div>
 
@@ -796,13 +753,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         <li><span class="vd-icon">🕐</span><span>Begins at 06:30 PM</span></li>
       </ul>
       <div class="btn-group">
-        <a class="btn btn-pri" href="https://maps.app.goo.gl/CY121BwxWcsXYiBy6" target="_blank" rel="noopener">📍 Directions to Lakshmi Hari Priya Convention</a>
+        <a class="btn btn-pri" href="https://maps.app.goo.gl/ePKmW8sm79FWr8R68" target="_blank" rel="noopener">📍 Directions to Lakshmi Hari Priya Convention</a>
       </div>
     </div>
   </div>
    <div class="btn-group reveal" style="transition-delay:.2s">
-      <a class="btn btn-pri" href="https://maps.app.goo.gl/TKwMkEmU6TJoHaiPA" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
-      <a class="btn btn-out" href="https://maps.app.goo.gl/UQkw5snSVTayrTa17" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A stay for Bride guests)</a>
+      <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
+    <a class="btn btn-pri" href="https://maps.app.goo.gl/7bPp9ii86fikUg7R9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A Stay for Bride guests)</a>
     </div>
   </div>
 </section>
@@ -862,12 +819,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
   <span id="micon">🎵</span><span id="mlbl">music</span>
 </div>
 
+<!-- SECRET NOTE MODAL -->
 <div id="love-modal" role="dialog" aria-modal="true">
   <div class="ln-card">
     <button class="ln-close" id="ln-close">✕</button>
     <span class="ln-icon">💌</span>
     <h3 class="ln-title">A Secret Note</h3>
-    <p class="ln-text">"To Srivalli — you are the Rasagulla to my Idli<br>the roses in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
+    <p class="ln-text">"To Srivalli — you are the Rasagulla to my Idli,<br>the roses in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
     <p class="ln-sig">— Your Aditya 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
   </div>
 </div>
@@ -880,10 +838,16 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 function $(id){return document.getElementById(id)}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-const PHOTOS=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.photos)||(window.RECEPTION_CONFIG&&window.RECEPTION_CONFIG.photos)||[];
-const MUSIC=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.musicFile)||(window.RECEPTION_CONFIG&&window.RECEPTION_CONFIG.musicFile);
-const WED=new Date(2026,7,27,23,39,0); // August 27, 2026 at 11:39 PM
-let cdInt=null, musicOn=false, musicStarted=false;
+// Fallback music path so it plays even if photos.js config is missing
+const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
+const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || "Couplepics/music.mp3";
+
+// TARGET DATES (Months are 0-indexed: 7 = August)
+const WED_DATE = new Date(2026, 7, 27, 23, 39, 0); // Aug 27, 2026, 11:39 PM
+const REC_DATE = new Date(2026, 7, 28, 18, 30, 0); // Aug 28, 2026, 06:30 PM
+
+let cdInt = null;
+let musicOn = false, musicStarted = false;
 
 /* ── stars ── */
 function initStars(id,n){
@@ -919,9 +883,8 @@ function showScroll(){
         tWrap=$('thread-wrap'),tLine=$('thread-line'),enterBtn=$('scroll-enter');
   wrap.classList.add('scroll-enter-anim');
   wrap.addEventListener('touchstart',()=>{
-    if(MUSIC&&!musicStarted){
-      const a=$('bg-audio');a.src=MUSIC;a.currentTime=0;
-      a.play().then(()=>{a.currentTime=0;musicOn=true;musicStarted=true;$('micon').textContent='🎵';$('mlbl').textContent='music';$('music-fab').classList.add('playing')}).catch(()=>{})
+    if(MUSIC && !musicStarted){
+      startAudio();
     }
   },{once:true,passive:true});
   const FULL=Math.min(400,Math.floor(window.innerHeight*(window.innerWidth<=768?.5:.58)));
@@ -1022,7 +985,7 @@ function initScrollReveal(){
 
 /* ── lotus bloom date reveal ── */
 function initDiyaReveal(){
-  const wrap=$('diya-wrap'),hint=$('diya-hint'),info=$('date-info-wrap'),drCd=$('dr-cd');
+  const wrap=$('diya-wrap'),hint=$('diya-hint'),info=$('date-info-wrap'),drCd=$('dr-cd'),drCdRec=$('dr-cd-rec');
   if(!wrap)return;
   let lit=false;
   function light(){
@@ -1043,7 +1006,8 @@ function initDiyaReveal(){
       if(hint)hint.style.display='none';
       if(info)info.classList.add('revealed');
       startMangalsutra();
-      drCd.classList.add('show');
+      if(drCd) drCd.classList.add('show');
+      if(drCdRec) drCdRec.classList.add('show');
       startCountdown();
     },920);
   }
@@ -1060,17 +1024,44 @@ function startMangalsutra(){
   gsap.to('#mthali',{scale:1,duration:.4,delay:3.3});
 }
 
-/* ── countdown ── */
+/* ── DUAL COUNTDOWN ── */
 function startCountdown(){
   if(cdInt)return;
   function tick(){
-    const d=WED-new Date();if(d<=0){clearInterval(cdInt);return}
-    $('cd-d').textContent=String(Math.floor(d/864e5)).padStart(2,'0');
-    $('cd-h').textContent=String(Math.floor(d%864e5/36e5)).padStart(2,'0');
-    $('cd-m').textContent=String(Math.floor(d%36e5/6e4)).padStart(2,'0');
-    $('cd-s').textContent=String(Math.floor(d%6e4/1e3)).padStart(2,'0');
+    const now = new Date();
+
+    const dWed = WED_DATE - now;
+    if (dWed <= 0) {
+      if($('wed-d')) $('wed-d').textContent = "00";
+      if($('wed-h')) $('wed-h').textContent = "00";
+      if($('wed-m')) $('wed-m').textContent = "00";
+      if($('wed-s')) $('wed-s').textContent = "00";
+    } else {
+      if($('wed-d')) $('wed-d').textContent = String(Math.floor(dWed / 864e5)).padStart(2, '0');
+      if($('wed-h')) $('wed-h').textContent = String(Math.floor((dWed % 864e5) / 36e5)).padStart(2, '0');
+      if($('wed-m')) $('wed-m').textContent = String(Math.floor((dWed % 36e5) / 6e4)).padStart(2, '0');
+      if($('wed-s')) $('wed-s').textContent = String(Math.floor((dWed % 6e4) / 1e3)).padStart(2, '0');
+    }
+
+    const dRec = REC_DATE - now;
+    if (dRec <= 0) {
+      if($('rec-d')) $('rec-d').textContent = "00";
+      if($('rec-h')) $('rec-h').textContent = "00";
+      if($('rec-m')) $('rec-m').textContent = "00";
+      if($('rec-s')) $('rec-s').textContent = "00";
+    } else {
+      if($('rec-d')) $('rec-d').textContent = String(Math.floor(dRec / 864e5)).padStart(2, '0');
+      if($('rec-h')) $('rec-h').textContent = String(Math.floor((dRec % 864e5) / 36e5)).padStart(2, '0');
+      if($('rec-m')) $('rec-m').textContent = String(Math.floor((dRec % 36e5) / 6e4)).padStart(2, '0');
+      if($('rec-s')) $('rec-s').textContent = String(Math.floor((dRec % 6e4) / 1e3)).padStart(2, '0');
+    }
+
+    if (dWed <= 0 && dRec <= 0) {
+      clearInterval(cdInt);
+    }
   }
-  tick();cdInt=setInterval(tick,1000);
+  tick();
+  cdInt = setInterval(tick, 1000);
 }
 
 /* ── book gallery ── */
@@ -1166,37 +1157,113 @@ function initCalBtn(){
   });
 }
 
-/* ── love note ── */
+/* ── FIXED SECRET NOTE MODAL ── */
 function initLoveNote(){
-  const modal=$('love-modal');
-  function open(){modal.classList.add('active');document.body.style.overflow='hidden'}
-  function close(){modal.classList.remove('active');document.body.style.overflow=''}
-  $('love-trigger').addEventListener('click',open);
-  $('bride-port').addEventListener('click',open);
-  $('groom-port').addEventListener('click',open);
-  $('ln-close').addEventListener('click',close);
-  modal.addEventListener('click',e=>{if(e.target===modal)close()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('active'))close()});
-}
+  const modal = $('love-modal');
+  if(!modal) return;
 
-/* ── music ── */
-function initMusic(){
-  const fab=$('music-fab'),audio=$('bg-audio');
-  if(!MUSIC){fab.style.opacity='.4';return}
-  if(!musicStarted)audio.src=MUSIC;
-  audio.volume=.42;
-  function toggle(){
-    if(!musicStarted){musicStarted=true;audio.currentTime=0;audio.play().then(()=>{audio.currentTime=0;musicOn=true;update()}).catch(()=>{})}
-    else if(musicOn){audio.pause();musicOn=false;update()}
-    else{audio.play();musicOn=true;update()}
+  function open(){
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
-  function update(){$('micon').textContent=musicOn?'🎵':'🔇';$('mlbl').textContent=musicOn?'music':'muted';fab.classList.toggle('playing',musicOn)}
-  fab.addEventListener('click',toggle);
-  fab.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
-  document.addEventListener('click',()=>{if(MUSIC&&!musicStarted)toggle()},{once:true,passive:true});
+  function close(){
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Bind trigger buttons securely
+  const triggers = [$('love-trigger'), $('groom-port'), $('bride-port')];
+  triggers.forEach(el => {
+    if(el) {
+      el.addEventListener('click', open);
+      el.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        open();
+      }, {passive: false});
+    }
+  });
+
+  const closeBtn = $('ln-close');
+  if(closeBtn) closeBtn.addEventListener('click', close);
+  
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) close();
+  });
+  
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('active')) close();
+  });
 }
 
-window.addEventListener('DOMContentLoaded',()=>{showDoors();});
+/* ── FIXED MUSIC FAB & AUDIO ── */
+function startAudio() {
+  const audio = $('bg-audio');
+  const fab = $('music-fab');
+  if (!audio) return;
+
+  if (!musicStarted) {
+    audio.src = MUSIC;
+    audio.volume = 0.42;
+    musicStarted = true;
+  }
+
+  audio.play().then(() => {
+    musicOn = true;
+    updateMusicUI();
+  }).catch(err => {
+    console.log("Audio play blocked until user gesture:", err);
+  });
+}
+
+function updateMusicUI() {
+  const micon = $('micon');
+  const mlbl = $('mlbl');
+  const fab = $('music-fab');
+  if (micon) micon.textContent = musicOn ? '🎵' : '🔇';
+  if (mlbl) mlbl.textContent = musicOn ? 'music' : 'muted';
+  if (fab) fab.classList.toggle('playing', musicOn);
+}
+
+function initMusic(){
+  const fab = $('music-fab');
+  const audio = $('bg-audio');
+  if (!fab || !audio) return;
+
+  audio.src = MUSIC;
+  audio.volume = 0.42;
+
+  function toggle(){
+    if (!musicStarted) {
+      startAudio();
+    } else if (musicOn) {
+      audio.pause();
+      musicOn = false;
+      updateMusicUI();
+    } else {
+      audio.play().then(() => {
+        musicOn = true;
+        updateMusicUI();
+      });
+    }
+  }
+
+  fab.addEventListener('click', toggle);
+  fab.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle();
+    }
+  });
+
+  // Enable audio on first document interaction to bypass browser autoplay policies
+  document.addEventListener('click', () => {
+    if (!musicStarted) startAudio();
+  }, {once: true, passive: true});
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  showDoors();
+});
 })();
 </script>
 </body>
