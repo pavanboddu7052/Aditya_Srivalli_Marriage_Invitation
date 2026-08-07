@@ -221,7 +221,7 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .card-head{padding:22px 18px 14px;text-align:center}
 .bride-head{background:linear-gradient(135deg,#1E5631,#2d7050,#0e3320)}
 .groom-head{background:linear-gradient(135deg,var(--royal),#0e2567,var(--mid))}
-.portrait-wrap{width:125px;height:182px;margin:0 auto 12px;border-radius:10px;overflow:hidden;cursor:pointer}
+.portrait-wrap{width:125px;height:182px;margin:0 auto 12px;border-radius:10px;overflow:hidden}
 .portrait-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
 .portrait-wrap:hover img{transform:scale(1.06)}
 .card-name{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#fff;margin-bottom:3px}
@@ -232,8 +232,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .fun-facts li:last-child{border-bottom:none}
 .fact-icon{font-size:1.05rem;flex-shrink:0;margin-top:1px}
 .fact-label{font-weight:700;color:var(--royal);display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
-.love-hint{text-align:center;margin-top:38px;font-family:'Dancing Script',cursive;font-size:1rem;color:var(--dgold);opacity:.8;cursor:pointer;transition:all .3s}
-.love-hint:hover{opacity:1;transform:scale(1.03)}
 
 #date-reveal{background:radial-gradient(ellipse at 50% 30%,#0D1B4B 0%,#060C22 65%,#020510 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
 #date-reveal .section-title h2{color:var(--gold)}
@@ -373,17 +371,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 #mlbl{font-size:.42rem;color:var(--gold);font-family:'Lato',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
 @keyframes fabRing{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 0 rgba(212,175,55,.5)}65%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 13px rgba(212,175,55,0)}}
 
-/* FIXED SECRET NOTE MODAL STYLING */
-#love-modal{position:fixed;inset:0;z-index:9800;background:rgba(0,0,0,.65);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px}
-#love-modal.active{display:flex}
-.ln-card{background:linear-gradient(160deg,var(--ivory),var(--cream));border:2px solid var(--gold);border-radius:16px;padding:38px 30px;max-width:450px;width:100%;text-align:center;position:relative;box-shadow:0 18px 70px rgba(26,58,143,.3);animation:lnIn .45s cubic-bezier(.2,1.4,.4,1) forwards}
-@keyframes lnIn{from{opacity:0;transform:scale(.84) translateY(18px)}to{opacity:1;transform:none}}
-.ln-close{position:absolute;top:11px;right:14px;font-size:1.3rem;color:var(--royal);cursor:pointer;background:none;border:none}
-.ln-icon{font-size:2.8rem;margin-bottom:12px;animation:hb 1.5s ease infinite;display:block}
-.ln-title{font-family:'Cinzel Decorative',serif;font-size:.95rem;color:var(--royal);margin-bottom:10px}
-.ln-text{font-family:'Dancing Script',cursive;font-size:1.2rem;color:#555;line-height:1.8;font-style:italic}
-.ln-sig{font-family:'Dancing Script',cursive;font-size:.95rem;color:var(--dgold);margin-top:14px}
-
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--ivory)}
 ::-webkit-scrollbar-thumb{background:var(--royal);border-radius:3px}
@@ -500,7 +487,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="gold-line"></div>
   </div>
   <div class="couple-wrap">
-    <!-- Groom Card with unique ID -->
+    <!-- Groom Card -->
     <div class="char-card reveal-l">
       <div class="card-head groom-head">
         <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
@@ -515,7 +502,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         </ul>
       </div>
     </div>
-    <!-- Bride Card with unique ID -->
+    <!-- Bride Card -->
     <div class="char-card reveal-r">
       <div class="card-head bride-head">
         <div class="portrait-wrap" id="bride-port"><img src="bride.png" alt="Srivalli"></div>
@@ -531,8 +518,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-  <!-- Clickable Secret Note trigger -->
-  <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
+ <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
 </section>
 
 <!-- DATE REVEAL -->
@@ -757,10 +743,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-   <div class="btn-group reveal" style="transition-delay:.2s">
-      <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
+  <div class="btn-group reveal" style="transition-delay:.2s; margin-top:20px;">
+    <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
     <a class="btn btn-pri" href="https://maps.app.goo.gl/7bPp9ii86fikUg7R9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A Stay for Bride guests)</a>
-    </div>
   </div>
 </section>
 
@@ -818,15 +803,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <div id="music-fab" role="button" tabindex="0" aria-label="Toggle music">
   <span id="micon">🎵</span><span id="mlbl">music</span>
 </div>
-
-<!-- SECRET NOTE MODAL -->
-<div id="love-modal" role="dialog" aria-modal="true">
+  <div id="love-modal" role="dialog" aria-modal="true">
   <div class="ln-card">
     <button class="ln-close" id="ln-close">✕</button>
     <span class="ln-icon">💌</span>
     <h3 class="ln-title">A Secret Note</h3>
-    <p class="ln-text">"To Srivalli — you are the Rasagulla to my Idli,<br>the roses in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
-    <p class="ln-sig">— Your Aditya 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
+    <p class="ln-text">"To Shanmukhi — you are the Bobbatlu to my Tomato Pappu,<br>the frangipani in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
+    <p class="ln-sig">— Your Pavan 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
   </div>
 </div>
 
@@ -835,16 +818,23 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <script>
 (function(){
 'use strict';
-function $(id){return document.getElementById(id)}
+function $(id){
+  if(typeof id !== 'string') return null;
+  return document.getElementById(id.trim());
+}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-// Fallback music path so it plays even if photos.js config is missing
-const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
-const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || "Couplepics/music.mp3";
+const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || 
+               (window.Marriage_CONFIG && window.Marriage_CONFIG.photos) || 
+               (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
 
-// TARGET DATES (Months are 0-indexed: 7 = August)
-const WED_DATE = new Date(2026, 7, 27, 23, 39, 0); // Aug 27, 2026, 11:39 PM
-const REC_DATE = new Date(2026, 7, 28, 18, 30, 0); // Aug 28, 2026, 06:30 PM
+const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || 
+              (window.Marriage_CONFIG && window.Marriage_CONFIG.musicFile) || 
+              (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || 
+              "Couplepics/music.mp3";
+
+const WED_DATE = new Date(2026, 7, 27, 23, 39, 0);
+const REC_DATE = new Date(2026, 7, 28, 18, 30, 0);
 
 let cdInt = null;
 let musicOn = false, musicStarted = false;
@@ -883,7 +873,7 @@ function showScroll(){
         tWrap=$('thread-wrap'),tLine=$('thread-line'),enterBtn=$('scroll-enter');
   wrap.classList.add('scroll-enter-anim');
   wrap.addEventListener('touchstart',()=>{
-    if(MUSIC && !musicStarted){
+    if(!musicStarted){
       startAudio();
     }
   },{once:true,passive:true});
@@ -941,7 +931,6 @@ function revealMain(){
   initDiyaReveal();
   initGalleryBook();
   initCalBtn();
-  initLoveNote();
   initMusic();
   startCountdown();
   initFireworks();
@@ -1157,62 +1146,26 @@ function initCalBtn(){
   });
 }
 
-/* ── FIXED SECRET NOTE MODAL ── */
-function initLoveNote(){
-  const modal = $('love-modal');
-  if(!modal) return;
-
-  function open(){
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function close(){
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // Bind trigger buttons securely
-  const triggers = [$('love-trigger'), $('groom-port'), $('bride-port')];
-  triggers.forEach(el => {
-    if(el) {
-      el.addEventListener('click', open);
-      el.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        open();
-      }, {passive: false});
-    }
-  });
-
-  const closeBtn = $('ln-close');
-  if(closeBtn) closeBtn.addEventListener('click', close);
-  
-  modal.addEventListener('click', function(e){
-    if(e.target === modal) close();
-  });
-  
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && modal.classList.contains('active')) close();
-  });
-}
-
-/* ── FIXED MUSIC FAB & AUDIO ── */
+/* ── MUSIC CONTROLLER ── */
 function startAudio() {
   const audio = $('bg-audio');
-  const fab = $('music-fab');
   if (!audio) return;
 
-  if (!musicStarted) {
+  if (!audio.src || audio.src === window.location.href) {
     audio.src = MUSIC;
-    audio.volume = 0.42;
-    musicStarted = true;
   }
+  audio.volume = 0.42;
 
-  audio.play().then(() => {
-    musicOn = true;
-    updateMusicUI();
-  }).catch(err => {
-    console.log("Audio play blocked until user gesture:", err);
-  });
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      musicOn = true;
+      musicStarted = true;
+      updateMusicUI();
+    }).catch(err => {
+      console.log("Autoplay waiting for interaction:", err);
+    });
+  }
 }
 
 function updateMusicUI() {
@@ -1221,7 +1174,10 @@ function updateMusicUI() {
   const fab = $('music-fab');
   if (micon) micon.textContent = musicOn ? '🎵' : '🔇';
   if (mlbl) mlbl.textContent = musicOn ? 'music' : 'muted';
-  if (fab) fab.classList.toggle('playing', musicOn);
+  if (fab) {
+    fab.style.opacity = '1';
+    fab.classList.toggle('playing', musicOn);
+  }
 }
 
 function initMusic(){
@@ -1232,33 +1188,37 @@ function initMusic(){
   audio.src = MUSIC;
   audio.volume = 0.42;
 
-  function toggle(){
-    if (!musicStarted) {
-      startAudio();
-    } else if (musicOn) {
+  function toggle(e){
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    if (!musicStarted || audio.paused) {
+      audio.play().then(() => {
+        musicOn = true;
+        musicStarted = true;
+        updateMusicUI();
+      }).catch(err => console.log("Play failed:", err));
+    } else {
       audio.pause();
       musicOn = false;
       updateMusicUI();
-    } else {
-      audio.play().then(() => {
-        musicOn = true;
-        updateMusicUI();
-      });
     }
   }
 
   fab.addEventListener('click', toggle);
-  fab.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle();
-    }
-  });
+  fab.addEventListener('touchend', toggle);
 
-  // Enable audio on first document interaction to bypass browser autoplay policies
-  document.addEventListener('click', () => {
-    if (!musicStarted) startAudio();
-  }, {once: true, passive: true});
+  const unlockAudio = function() {
+    if (!musicStarted) {
+      startAudio();
+    }
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('touchstart', unlockAudio);
+  };
+
+  document.addEventListener('click', unlockAudio, {once: true, passive: true});
+  document.addEventListener('touchstart', unlockAudio, {once: true, passive: true});
 }
 
 window.addEventListener('DOMContentLoaded', () => {
