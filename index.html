@@ -220,7 +220,8 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .hero-sub{font-family:'Dancing Script',cursive;font-size:clamp(1rem,2.8vw,1.6rem);color:#fff;margin-bottom:18px;font-style:italic;opacity:0;animation:hIn .8s ease .95s forwards;text-shadow:0 2px 8px rgba(0,0,0,0.8)}
 .hero-names{font-family:'Cinzel Decorative',serif;font-size:clamp(1.35rem,4vw,2.4rem);color:#fff;letter-spacing:3px;opacity:0;animation:hIn .8s ease 1.1s forwards;text-shadow:0 2px 10px rgba(0,0,0,0.8)}
 .h-heart{color:var(--sky);display:inline-block;animation:hb 1.5s ease infinite}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 20px;border-radius:50px;border:1px solid var(--gold);font-family:'Playfair Display',serif;font-size:.88rem;color:var(--gold);opacity:0;animation:hIn .7s ease 1.25s forwards;background:rgba(10,22,40,0.7);box-shadow:0 4px 15px rgba(0,0,0,0.5)}
+.hero-pill-wrap{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:20px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:50px;border:1px solid var(--gold);font-family:'Playfair Display',serif;font-size:.88rem;color:var(--gold);opacity:0;animation:hIn .7s ease 1.25s forwards;background:rgba(10,22,40,0.7);box-shadow:0 4px 15px rgba(0,0,0,0.5)}
 .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);opacity:0;animation:hIn .6s ease 1.7s forwards,shPulse 2.2s ease-in-out 2.3s infinite;display:flex;flex-direction:column;align-items:center;gap:8px;user-select:none}
 .sh-label{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);text-shadow:0 2px 8px rgba(0,0,0,0.9)}
 .sh-mouse{width:22px;height:36px;border-radius:12px;border:2px solid var(--gold);position:relative;box-shadow:0 0 14px rgba(212,175,55,.5);background:rgba(10,22,40,0.4)}
@@ -286,7 +287,7 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .diya-hint{display:flex;flex-direction:column;align-items:center;gap:4px;transition:opacity .5s ease}
 .dh-label{font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,175,55,.65);animation:tapPulse 2s ease infinite}
 .dh-tel{font-family:'Noto Sans Telugu',serif;font-size:.82rem;color:rgba(212,175,55,.45)}
-.date-info-wrap{max-width:480px;margin:32px auto 0;text-align:center;opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;pointer-events:none}
+.date-info-wrap{max-width:540px;margin:32px auto 0;text-align:center;opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;pointer-events:none}
 .date-info-wrap.revealed{opacity:1;transform:translateY(0);pointer-events:auto}
 .drt-day{font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--sky);margin-bottom:4px;display:block}
 .drt-date{font-family:'Cinzel Decorative',serif;font-size:clamp(4.5rem,14vw,7rem);color:var(--gold);line-height:1;display:block;text-shadow:0 0 50px rgba(212,175,55,.65)}
@@ -332,8 +333,9 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 #ceremony{background:linear-gradient(160deg,var(--navy) 0%,#0A1020 50%,#050810 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
 #ceremony .section-title h2{color:var(--gold)}
 #ceremony .tel-sub{color:var(--sky)}
-.ceremony-cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:880px;margin:0 auto 40px}
-.cer-card{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.28);border-radius:14px;padding:22px 24px;min-width:155px;backdrop-filter:blur(8px);transition:all .3s}
+.ceremony-cards-group{display:flex;flex-direction:column;gap:20px;max-width:880px;margin:0 auto 40px}
+.ceremony-cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cer-card{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.28);border-radius:14px;padding:22px 24px;min-width:155px;flex:1;backdrop-filter:blur(8px);transition:all .3s}
 .cer-card:hover{background:rgba(255,255,255,.1);border-color:var(--gold);transform:translateY(-4px)}
 .cer-icon{font-size:2rem;margin-bottom:9px;display:block}
 .cer-label{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-family:'Lato',sans-serif}
@@ -348,9 +350,10 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
    VENUE
 ═══════════════════════════════════════════ */
 #venue{background:linear-gradient(135deg,#eef2ff,var(--ivory))}
-.venue-inner{max-width:660px;margin:0 auto}
-.venue-map-wrap{border-radius:14px;overflow:hidden;margin-bottom:22px;box-shadow:0 8px 28px rgba(26,58,143,.14)}
-.venue-map-wrap iframe{width:100%;height:270px;border:0;display:block}
+.venue-inner{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+.venue-block{background:#fff;border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(26,58,143,.08);border:1px solid rgba(212,175,55,.2)}
+.venue-map-wrap{border-radius:14px;overflow:hidden;margin-bottom:18px;box-shadow:0 8px 28px rgba(26,58,143,.14)}
+.venue-map-wrap iframe{width:100%;height:250px;border:0;display:block}
 .venue-name-card{background:linear-gradient(135deg,var(--royal),var(--mid));color:#fff;padding:20px 22px;border-radius:13px;margin-bottom:16px}
 .v-name{font-family:'Cinzel Decorative',serif;font-size:1.05rem;color:var(--gold);margin-bottom:3px}
 .v-tel{font-family:'Noto Sans Telugu',serif;font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:7px}
@@ -359,7 +362,7 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .venue-details li{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid rgba(212,175,55,.16);font-size:.88rem;color:#555}
 .venue-details li:last-child{border-bottom:none}
 .vd-icon{font-size:1.15rem;width:24px;text-align:center}
-.btn-group{display:flex;gap:9px;flex-wrap:wrap}
+.btn-group{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:50px;font-size:.83rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .3s;font-family:'Lato',sans-serif}
 .btn-pri{background:linear-gradient(135deg,var(--royal),var(--mid));color:#fff}
 .btn-pri:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(26,58,143,.4)}
@@ -544,11 +547,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="hero-div"></div>
     <p class="hero-sub">మన రెండు మనసుల దూరాన్ని కలిపే రోజు మళ్లీ రాదు మరో మారు</p>
     <p class="hero-names">ADITYA <span class="h-heart">♥</span> SRIVALLI</p>
-   <div class="hero-pill-wrap">
+    <div class="hero-pill-wrap">
       <div class="hero-pill"><span>💑</span><span>Marriage: Thursday, 27 August 2026 &nbsp;·&nbsp; 11:39 PM</span></div>
       <div class="hero-pill"><span>💐</span><span>Reception: Friday, 28 August 2026 &nbsp;·&nbsp; 06:30 PM</span></div>
     </div>
-</div>
+  </div>
   <div class="scroll-hint"><span class="sh-label">Scroll</span><div class="sh-mouse"><span class="sh-wheel"></span></div></div>
 </section>
 
@@ -565,12 +568,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
         <div class="card-name">Aditya</div>
         <div class="card-role">The Groom · వరుడు</div>
-         </div>
+      </div>
       <div class="card-body">
         <ul class="fun-facts">
           <li><span class="fact-icon">🍚</span><div><span class="fact-label">Favourite Food</span>Idli, Uppidi Pindi &amp; Sunni Undalu</div></li>
           <li><span class="fact-icon">📚</span><div><span class="fact-label">Hobbies</span>Continuous learning</div></li>
-          <li><span class="fact-icon">⚡</span><div><span class="fact-label">His Dream</span>To reach at uncatchable position</div></li>
+          <li><span class="fact-icon">⚡</span><div><span class="fact-label">His Dream</span>To reach an uncatchable position</div></li>
+        </ul>
       </div>
     </div>
     <div class="char-card reveal-r">
@@ -581,11 +585,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
       <div class="card-body">
         <ul class="fun-facts">
-          <li><span class="fact-icon">🍚</span><div><span class="fact-label">Favourite Food</span>Rasagulla & Chocolates</div></li>
-          <li><span class="fact-icon">📚</span><div><span class="fact-label">Hobbies</span>learning new things</div></li>
-          <li><span class="fact-icon">⚡</span><div><span class="fact-label">Her Dream</span>To stand along with the partner</div></li>
+          <li><span class="fact-icon">🍫</span><div><span class="fact-label">Favourite Food</span>Rasagulla &amp; Chocolates</div></li>
+          <li><span class="fact-icon">📚</span><div><span class="fact-label">Hobbies</span>Learning new things</div></li>
+          <li><span class="fact-icon">⚡</span><div><span class="fact-label">Her Dream</span>To stand along with her partner</div></li>
+        </ul>
       </div>
-    </div>
     </div>
   </div>
   <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
@@ -611,20 +615,24 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-   <div class="date-info-wrap" id="date-info-wrap">
+  <div class="date-info-wrap" id="date-info-wrap">
     <div id="date-content">
-      <span class="drt-day">Thursday</span>
-      <span class="drt-date">27</span>
-      <span class="drt-month">August · 2026</span>
-      <span class="drt-muh">🕐 &nbsp; ముహూర్తం · 11:39 PM</span>
-      <span class="drt-venue">Sri RamaChandra Gardens· Palakollu, Andhra Pradesh</span>
-      <span class="drt-day">Friday</span>
-      <span class="drt-date">28</span>
-      <span class="drt-month">August · 2026</span>
-      <span class="drt-muh">🕐 &nbsp; 06:30 PM</span>
-      <span class="drt-venue">Lakshmi Hari Priya Convention · Mogalthur, Andhra Pradesh</span>
-         <div class="mangal-wrap"> 
-         <svg id="msv" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <div style="margin-bottom:20px;">
+        <span class="drt-day">Thursday</span>
+        <span class="drt-date">27</span>
+        <span class="drt-month">August · 2026</span>
+        <span class="drt-muh">🕐 &nbsp; ముహూర్తం · 11:39 PM</span>
+        <span class="drt-venue">Sri RamaChandra Gardens · Palakollu, Andhra Pradesh</span>
+      </div>
+      <div style="margin-top:20px;">
+        <span class="drt-day">Friday</span>
+        <span class="drt-date">28</span>
+        <span class="drt-month">August · 2026</span>
+        <span class="drt-muh">🕐 &nbsp; రిసెప్షన్ సమయం · 06:30 PM</span>
+        <span class="drt-venue">Lakshmi Hari Priya Convention · Mogalthur, Andhra Pradesh</span>
+      </div>
+      <div class="mangal-wrap">
+        <svg id="msv" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
           <path id="mt1" d="M150,25C220,25 270,75 270,145C270,215 220,268 150,275C80,268 30,215 30,145C30,75 80,25 150,25Z" fill="none" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="900" stroke-dashoffset="900"/>
           <path id="mt2" d="M150,60C200,60 240,95 240,145C240,195 200,240 150,245C100,240 60,195 60,145C60,95 100,60 150,60Z" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" opacity=".65" stroke-dasharray="700" stroke-dashoffset="700"/>
           <circle class="mb" cx="150" cy="25"  r="5.5" fill="#1a1a1a" opacity="0"/>
@@ -670,7 +678,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <!-- CEREMONY -->
 <section id="ceremony" class="section">
   <div class="section-title reveal">
-    <h2>Marriage & Reception Celebrations</h2>
+    <h2>Marriage &amp; Reception Celebrations</h2>
     <p class="tel-sub">వివాహం మరియు రిసెప్షన్ వేడుకలు</p>
     <div class="gold-line"></div>
   </div>
@@ -703,31 +711,34 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         <div class="ev-time">11:39 PM</div>
       </div>
     </div>
-<div class="ev-card reveal" style="transition-delay:.19s">
-  <div class="ev-badge" style="background: linear-gradient(135deg, #1E5631, #0E3320); border-color: rgba(212, 175, 55, 0.6);"><span class="ev-day">28</span><span class="ev-mon">Aug</span></div>
-  <div>
-    <div class="ev-icon">💐</div>
-    <div class="ev-name">Reception Ceremony</div>
-    <div class="ev-name-tel">రిసెప్షన్ మహోత్సవం</div>
-    <div class="ev-time">06:30 PM</div>
-  </div>
-</div>
-  </div>
-</div>
+    <div class="ev-card reveal" style="transition-delay:.19s">
+      <div class="ev-badge" style="background: linear-gradient(135deg, #1E5631, #0E3320); border-color: rgba(212, 175, 55, 0.6);"><span class="ev-day">28</span><span class="ev-mon">Aug</span></div>
+      <div>
+        <div class="ev-icon">💐</div>
+        <div class="ev-name">Reception Ceremony</div>
+        <div class="ev-name-tel">రిసెప్షన్ మహోత్సవం</div>
+        <div class="ev-time">06:30 PM</div>
       </div>
     </div>
   </div>
+
   <p class="reveal" style="font-family:'Cinzel Decorative',serif;font-size:.72rem;color:var(--gold);text-align:center;letter-spacing:3px;margin-bottom:28px;text-transform:uppercase;transition-delay:.22s">— Ceremony Details —</p>
-  <div class="ceremony-cards">
-     <div class="cer-card reveal" style="transition-delay:.05s"><span class="cer-icon">📅</span><div class="cer-label">Marriage Date</div><div class="cer-val">27 August 2026</div><div class="cer-sub">Thursday</div></div>
-    <div class="cer-card reveal" style="transition-delay:.1s"><span class="cer-icon">🕐</span><div class="cer-label">Muhurtham</div><div class="cer-val">11:39 PM</div><div class="cer-sub">ముహూర్తం</div></div>
-    <div class="cer-card reveal" style="transition-delay:.15s"><span class="cer-icon">📍</span><div class="cer-label">Venue</div><div class="cer-val">Sri RamaChandra Gardens</div><div class="cer-sub">Palakollu, Andhra Pradesh</div></div>
-    <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Marriage</div><div class="cer-val">Dinner &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
-    <div class="cer-card reveal" style="transition-delay:.05s"><span class="cer-icon">📅</span><div class="cer-label">Reception Date</div><div class="cer-val">28 August 2026</div><div class="cer-sub">Friday</div></div>
-    <div class="cer-card reveal" style="transition-delay:.1s"><span class="cer-icon">🕐</span><div class="cer-label">Begins at</div><div class="cer-val">06:30 PM</div><div class="cer-sub">ముహూర్తం</div></div>
-    <div class="cer-card reveal" style="transition-delay:.15s"><span class="cer-icon">📍</span><div class="cer-label">Venue</div><div class="cer-val">Lakshmi Hari Priya Convention</div><div class="cer-sub">Mogalthur, Andhra Pradesh</div></div>
-    <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Reception</div><div class="cer-val">Dinner &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
+  
+  <div class="ceremony-cards-group">
+    <div class="ceremony-cards">
+      <div class="cer-card reveal" style="transition-delay:.05s"><span class="cer-icon">📅</span><div class="cer-label">Marriage Date</div><div class="cer-val">27 August 2026</div><div class="cer-sub">Thursday</div></div>
+      <div class="cer-card reveal" style="transition-delay:.1s"><span class="cer-icon">🕐</span><div class="cer-label">Muhurtham</div><div class="cer-val">11:39 PM</div><div class="cer-sub">ముహూర్తం</div></div>
+      <div class="cer-card reveal" style="transition-delay:.15s"><span class="cer-icon">📍</span><div class="cer-label">Venue</div><div class="cer-val">Sri RamaChandra Gardens</div><div class="cer-sub">Palakollu, Andhra Pradesh</div></div>
+      <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Marriage</div><div class="cer-val">Dinner &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
+    </div>
+    <div class="ceremony-cards">
+      <div class="cer-card reveal" style="transition-delay:.05s"><span class="cer-icon">📅</span><div class="cer-label">Reception Date</div><div class="cer-val">28 August 2026</div><div class="cer-sub">Friday</div></div>
+      <div class="cer-card reveal" style="transition-delay:.1s"><span class="cer-icon">🕐</span><div class="cer-label">Begins at</div><div class="cer-val">06:30 PM</div><div class="cer-sub">ముహూర్తం</div></div>
+      <div class="cer-card reveal" style="transition-delay:.15s"><span class="cer-icon">📍</span><div class="cer-label">Venue</div><div class="cer-val">Lakshmi Hari Priya Convention</div><div class="cer-sub">Mogalthur, Andhra Pradesh</div></div>
+      <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Reception</div><div class="cer-val">Dinner &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
+    </div>
   </div>
+
   <div class="rituals-wrap reveal" style="transition-delay:.3s">
     <p class="ritual-title">Sacred Rituals · పవిత్ర కార్యక్రమాలు</p>
     <div class="ritual-list">
@@ -744,41 +755,54 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <!-- VENUE -->
 <section id="venue" class="section">
   <div class="section-title reveal">
-    <h2>The Venue details</h2>
+    <h2>The Venue Details</h2>
     <p class="tel-sub">వేదిక వివరాలు</p>
     <div class="gold-line"></div>
   </div>
-   <div class="venue-inner">
-    <div class="venue-map-wrap reveal">
-      <iframe title="Sri RamaChandra Gardens" loading="lazy"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2239.581339279123!2d81.73384972566714!3d16.523593628296783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37db02b196cc57%3A0xce048a4562017945!2sSri%20RamaChandra%20Gardens.!5e1!3m2!1sen!2sin!4v1786120079848!5m2!1sen!2sin%22" allowfullscreen></iframe>
-    </div>
-    <div class="venue-name-card reveal" style="transition-delay:.1s">
-             <div class="v-tel">వేదిక స్థలం</div>
-      <div class="v-name">Sri RamaChandra Gardens</div>
-      <div class="v-addr">Bypass Road,<br>Palakollu,<br>Andhra Pradesh. 534260</div>
-    </div>
-    <ul class="venue-details reveal" style="transition-delay:.15s">
-      <li><span class="vd-icon">🗓️</span><span>Thursday, 27 August 2026</span></li>
-      <li><span class="vd-icon">🕐</span><span>Muhurtham 11:39 PM</span></li>
-    </ul>
   <div class="venue-inner">
-    <div class="venue-map-wrap reveal">
-      <iframe title="Lakshmi Hari Priya Convention" loading="lazy"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1517.2322498119238!2d81.60620760984781!3d16.41608835017661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37d7001b9ddf3d%3A0x52772b931f491f32!2sLakshmi%20HariPriya%20Convention%2C%20Mogalthur!5e1!3m2!1sen!2sus!4v1786108948209!5m2!1sen!2sus" allowfullscreen></iframe>
+    <!-- Marriage Venue -->
+    <div class="venue-block reveal">
+      <div class="venue-map-wrap">
+        <iframe title="Sri RamaChandra Gardens" loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.0597004669844!2d81.73301337514565!3d16.52359568422371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37db02b196cc57%3A0xce048a4562017945!2sSri%20RamaChandra%20Gardens.!5e1!3m2!1sen!2sin!4v1786119631520!5m2!1sen!2sin" allowfullscreen></iframe>
+      </div>
+      <div class="venue-name-card">
+        <div class="v-tel">వేదిక స్థలం</div>
+        <div class="v-name">Sri RamaChandra Gardens</div>
+        <div class="v-addr">Bypass Road,<br>Palakollu,<br>Andhra Pradesh. 534260</div>
+      </div>
+      <ul class="venue-details">
+        <li><span class="vd-icon">🗓️</span><span>Thursday, 27 August 2026</span></li>
+        <li><span class="vd-icon">🕐</span><span>Muhurtham 11:39 PM</span></li>
+      </ul>
+      <div class="btn-group">
+        <a class="btn btn-pri" href="https://maps.app.goo.gl/1jzGYRqBJjWh3D9o7" target="_blank" rel="noopener">📍 Directions to Sri RamaChandra Gardens</a>
+      </div>
     </div>
-    <div class="venue-name-card reveal" style="transition-delay:.1s">
-             <div class="v-tel">వేదిక స్థలం</div>
-      <div class="v-name">Lakshmi Hari Priya Convention</div>
-      <div class="v-addr">Machilipatnam Highway, Opposite Police Station,<br>Mogalthur,<br>Andhra Pradesh. 534281</div>
+
+    <!-- Reception Venue -->
+    <div class="venue-block reveal">
+      <div class="venue-map-wrap">
+        <iframe title="Lakshmi Hari Priya Convention" loading="lazy"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1517.2322498119238!2d81.60620760984781!3d16.41608835017661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37d7001b9ddf3d%3A0x52772b931f491f32!2sLakshmi%20HariPriya%20Convention%2C%20Mogalthur!5e1!3m2!1sen!2sus!4v1786108948209!5m2!1sen!2sus" allowfullscreen></iframe>
+      </div>
+      <div class="venue-name-card">
+        <div class="v-tel">వేదిక స్థలం</div>
+        <div class="v-name">Lakshmi Hari Priya Convention</div>
+        <div class="v-addr">Machilipatnam Highway, Opposite Police Station,<br>Mogalthur,<br>Andhra Pradesh. 534281</div>
+      </div>
+      <ul class="venue-details">
+        <li><span class="vd-icon">🗓️</span><span>Friday, 28 August 2026</span></li>
+        <li><span class="vd-icon">🕐</span><span>Begins at 06:30 PM</span></li>
+      </ul>
+      <div class="btn-group">
+        <a class="btn btn-pri" href="https://maps.app.goo.gl/CY121BwxWcsXYiBy6" target="_blank" rel="noopener">📍 Directions to Lakshmi Hari Priya Convention</a>
+      </div>
     </div>
-    <ul class="venue-details reveal" style="transition-delay:.15s">
-      <li><span class="vd-icon">🗓️</span><span>Friday, 28 August 2026</span></li>
-      <li><span class="vd-icon">🕐</span><span> Begins at 06:30 PM</span></li>
-          </ul>
-    <div class="btn-group reveal" style="transition-delay:.2s">
-      <a class="btn btn-pri" href="https://maps.app.goo.gl/eLvo7CcoQ2EN5imh6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam</a>
-      <a class="btn btn-out" href="https://maps.app.goo.gl/CGFH5kkTb1i7ghnX9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A stay for bride guests)</a>
+  </div>
+   <div class="btn-group reveal" style="transition-delay:.2s">
+      <a class="btn btn-pri" href="https://maps.app.goo.gl/TKwMkEmU6TJoHaiPA" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
+      <a class="btn btn-out" href="https://maps.app.goo.gl/UQkw5snSVTayrTa17" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A stay for Bride guests)</a>
     </div>
   </div>
 </section>
@@ -821,16 +845,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <p class="fin-tel reveal" style="transition-delay:.1s">మీ అభినందనలు</p>
     <p class="fin-q reveal" style="transition-delay:.2s">"Two hearts joining together,<br>two families becoming one,<br>a lifetime of love — just beginning."</p>
     <div class="fin-names reveal" style="transition-delay:.3s">ADITYA <span style="color:var(--sky);display:inline-block;animation:hb 1.5s ease infinite">♥</span> SRIVALLI</div>
-    <p class="fin-bless reveal" style="transition-delay:.4s">మా వివాహం మరియు రిసెప్షన్‌కు వేంచేసి ఆశీర్వదించగలరు<br><span style="font-family:'Dancing Script',cursive;font-size:.92rem;color:rgba(255,255,255,.45)">Please grace our Marriage & Reception with your blessings</span></p>
+    <p class="fin-bless reveal" style="transition-delay:.4s">మా వివాహం మరియు రిసెప్షన్‌కు వేంచేసి ఆశీర్వదించగలరు<br><span style="font-family:'Dancing Script',cursive;font-size:.92rem;color:rgba(255,255,255,.45)">Please grace our Marriage &amp; Reception with your blessings</span></p>
     <div style="margin-top:24px;font-size:1.8rem">🎊 ❤️ 🎊</div>
   </div>
 </section>
 
 <footer>
   <p class="f-logo">శ్రీ శుభ వివాహం మరియు రిసెప్షన్</p>
-   <div class="avatar-crop"><img src="Groom.png" alt="Aditya"></div>
-      <div class="avatar-crop"><img src="bride.png" alt="Srivalli"></div>
-  <p><<span class="avatar-label">A ♥ S</span> &nbsp;·&nbsp;</p>
+  <p><span class="f-logo">#ADISRI</span> &nbsp;·&nbsp; 27 &amp; 28 August 2026</p>
   <p style="margin-top:6px">C/o Krishna Nilayam, Mogalthur, Andhra Pradesh</p>
   <p style="margin-top:9px;font-size:.72rem">Made with <span class="f-heart">♥</span> for our beloved couple</p>
 </footer>
@@ -858,9 +880,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 function $(id){return document.getElementById(id)}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-const PHOTOS=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.photos)||(window.Reception_CONFIG&&window.Reception_CONFIG.photos)||[];
-const MUSIC=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.musicFile)||(window.Reception_CONFIG&&window.Reception_CONFIG.musicFile);
-const WED=new Date(2026,7,28,18,30,0); // August 28, 2026 at 6:30 PM
+const PHOTOS=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.photos)||(window.RECEPTION_CONFIG&&window.RECEPTION_CONFIG.photos)||[];
+const MUSIC=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.musicFile)||(window.RECEPTION_CONFIG&&window.RECEPTION_CONFIG.musicFile);
+const WED=new Date(2026,7,27,23,39,0); // August 27, 2026 at 11:39 PM
 let cdInt=null, musicOn=false, musicStarted=false;
 
 /* ── stars ── */
@@ -1137,10 +1159,10 @@ function initFireworks(){
 /* ── calendar ICS ── */
 function initCalBtn(){
   $('cal-btn').addEventListener('click',()=>{
-    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Reception','DTSTART:20260828T183000','DTEND:20260828T230000','LOCATION:Lakshmi Hari Priya Convention\\, Mogalthur\\, Andhra Pradesh 534281','DESCRIPTION:Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Marriage & Reception','DTSTART:20260827T233900','DTEND:20260828T230000','LOCATION:Palakollu & Mogalthur\\, Andhra Pradesh','DESCRIPTION:Marriage & Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download='Aditya-Srivalli-Reception.ics';a.click();URL.revokeObjectURL(a.href);
+    a.download='Aditya-Srivalli-Wedding.ics';a.click();URL.revokeObjectURL(a.href);
   });
 }
 
