@@ -373,9 +373,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 #mlbl{font-size:.42rem;color:var(--gold);font-family:'Lato',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
 @keyframes fabRing{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 0 rgba(212,175,55,.5)}65%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 13px rgba(212,175,55,0)}}
 
-/* FIXED SECRET NOTE MODAL STYLING */
+/* SECRET NOTE MODAL STYLING */
 #love-modal{position:fixed;inset:0;z-index:9800;background:rgba(0,0,0,.65);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px}
-#love-modal.active{display:flex}
+#love-modal.active{display:flex !important}
 .ln-card{background:linear-gradient(160deg,var(--ivory),var(--cream));border:2px solid var(--gold);border-radius:16px;padding:38px 30px;max-width:450px;width:100%;text-align:center;position:relative;box-shadow:0 18px 70px rgba(26,58,143,.3);animation:lnIn .45s cubic-bezier(.2,1.4,.4,1) forwards}
 @keyframes lnIn{from{opacity:0;transform:scale(.84) translateY(18px)}to{opacity:1;transform:none}}
 .ln-close{position:absolute;top:11px;right:14px;font-size:1.3rem;color:var(--royal);cursor:pointer;background:none;border:none}
@@ -500,7 +500,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="gold-line"></div>
   </div>
   <div class="couple-wrap">
-    <!-- Groom Card with unique ID -->
+    <!-- Groom Card -->
     <div class="char-card reveal-l">
       <div class="card-head groom-head">
         <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
@@ -515,7 +515,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         </ul>
       </div>
     </div>
-    <!-- Bride Card with unique ID -->
+    <!-- Bride Card -->
     <div class="char-card reveal-r">
       <div class="card-head bride-head">
         <div class="portrait-wrap" id="bride-port"><img src="bride.png" alt="Srivalli"></div>
@@ -757,10 +757,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-   <div class="btn-group reveal" style="transition-delay:.2s">
-      <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
+  <div class="btn-group reveal" style="transition-delay:.2s; margin-top:20px;">
+    <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
     <a class="btn btn-pri" href="https://maps.app.goo.gl/7bPp9ii86fikUg7R9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A Stay for Bride guests)</a>
-    </div>
   </div>
 </section>
 
@@ -835,16 +834,23 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <script>
 (function(){
 'use strict';
-function $(id){return document.getElementById(id)}
+function $(id){
+  if(typeof id !== 'string') return null;
+  return document.getElementById(id.trim());
+}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-// Fallback music path so it plays even if photos.js config is missing
-const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
-const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || "Couplepics/music.mp3";
+const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || 
+               (window.Marriage_CONFIG && window.Marriage_CONFIG.photos) || 
+               (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
 
-// TARGET DATES (Months are 0-indexed: 7 = August)
-const WED_DATE = new Date(2026, 7, 27, 23, 39, 0); // Aug 27, 2026, 11:39 PM
-const REC_DATE = new Date(2026, 7, 28, 18, 30, 0); // Aug 28, 2026, 06:30 PM
+const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || 
+              (window.Marriage_CONFIG && window.Marriage_CONFIG.musicFile) || 
+              (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || 
+              "Couplepics/music.mp3";
+
+const WED_DATE = new Date(2026, 7, 27, 23, 39, 0);
+const REC_DATE = new Date(2026, 7, 28, 18, 30, 0);
 
 let cdInt = null;
 let musicOn = false, musicStarted = false;
@@ -883,7 +889,7 @@ function showScroll(){
         tWrap=$('thread-wrap'),tLine=$('thread-line'),enterBtn=$('scroll-enter');
   wrap.classList.add('scroll-enter-anim');
   wrap.addEventListener('touchstart',()=>{
-    if(MUSIC && !musicStarted){
+    if(!musicStarted){
       startAudio();
     }
   },{once:true,passive:true});
@@ -1157,62 +1163,72 @@ function initCalBtn(){
   });
 }
 
-/* ── FIXED SECRET NOTE MODAL ── */
+/* ── CLEANED SECRET NOTE MODAL HANDLER ── */
 function initLoveNote(){
   const modal = $('love-modal');
   if(!modal) return;
 
-  function open(){
+  function openModal(e){
+    if(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  function close(){
+
+  function closeModal(e){
+    if(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  // Bind trigger buttons securely
   const triggers = [$('love-trigger'), $('groom-port'), $('bride-port')];
   triggers.forEach(el => {
     if(el) {
-      el.addEventListener('click', open);
-      el.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        open();
-      }, {passive: false});
+      el.addEventListener('click', openModal);
+      el.addEventListener('touchend', openModal, {passive: false});
     }
   });
 
   const closeBtn = $('ln-close');
-  if(closeBtn) closeBtn.addEventListener('click', close);
+  if(closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('touchend', closeModal, {passive: false});
+  }
   
   modal.addEventListener('click', function(e){
-    if(e.target === modal) close();
+    if(e.target === modal) closeModal(e);
   });
   
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && modal.classList.contains('active')) close();
+    if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 }
 
-/* ── FIXED MUSIC FAB & AUDIO ── */
+/* ── MUSIC CONTROLLER ── */
 function startAudio() {
   const audio = $('bg-audio');
-  const fab = $('music-fab');
   if (!audio) return;
 
-  if (!musicStarted) {
+  if (!audio.src || audio.src === window.location.href) {
     audio.src = MUSIC;
-    audio.volume = 0.42;
-    musicStarted = true;
   }
+  audio.volume = 0.42;
 
-  audio.play().then(() => {
-    musicOn = true;
-    updateMusicUI();
-  }).catch(err => {
-    console.log("Audio play blocked until user gesture:", err);
-  });
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      musicOn = true;
+      musicStarted = true;
+      updateMusicUI();
+    }).catch(err => {
+      console.log("Autoplay waiting for interaction:", err);
+    });
+  }
 }
 
 function updateMusicUI() {
@@ -1221,7 +1237,10 @@ function updateMusicUI() {
   const fab = $('music-fab');
   if (micon) micon.textContent = musicOn ? '🎵' : '🔇';
   if (mlbl) mlbl.textContent = musicOn ? 'music' : 'muted';
-  if (fab) fab.classList.toggle('playing', musicOn);
+  if (fab) {
+    fab.style.opacity = '1';
+    fab.classList.toggle('playing', musicOn);
+  }
 }
 
 function initMusic(){
@@ -1232,33 +1251,37 @@ function initMusic(){
   audio.src = MUSIC;
   audio.volume = 0.42;
 
-  function toggle(){
-    if (!musicStarted) {
-      startAudio();
-    } else if (musicOn) {
+  function toggle(e){
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    if (!musicStarted || audio.paused) {
+      audio.play().then(() => {
+        musicOn = true;
+        musicStarted = true;
+        updateMusicUI();
+      }).catch(err => console.log("Play failed:", err));
+    } else {
       audio.pause();
       musicOn = false;
       updateMusicUI();
-    } else {
-      audio.play().then(() => {
-        musicOn = true;
-        updateMusicUI();
-      });
     }
   }
 
   fab.addEventListener('click', toggle);
-  fab.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle();
-    }
-  });
+  fab.addEventListener('touchend', toggle);
 
-  // Enable audio on first document interaction to bypass browser autoplay policies
-  document.addEventListener('click', () => {
-    if (!musicStarted) startAudio();
-  }, {once: true, passive: true});
+  const unlockAudio = function() {
+    if (!musicStarted) {
+      startAudio();
+    }
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('touchstart', unlockAudio);
+  };
+
+  document.addEventListener('click', unlockAudio, {once: true, passive: true});
+  document.addEventListener('touchstart', unlockAudio, {once: true, passive: true});
 }
 
 window.addEventListener('DOMContentLoaded', () => {
