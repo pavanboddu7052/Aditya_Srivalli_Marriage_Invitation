@@ -96,7 +96,6 @@ img{max-width:100%;display:block}
 /* ═══════════════════════════════════════════
    PAPYRUS SCROLL OPENING
 ═══════════════════════════════════════════ */
-/* Lotus sparkles */
 .lspark{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:20;animation:sparkBurst .9s ease forwards}
 @keyframes sparkBurst{0%{opacity:1;transform:translate(0,0) scale(1.3)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0)}}
 .bloomed .lotus-center{animation:bloomGlow .7s ease forwards}
@@ -213,8 +212,8 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .char-card{flex:1;min-width:285px;max-width:400px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 38px rgba(26,58,143,.1);transition:transform .3s,box-shadow .3s}
 .char-card:hover{transform:translateY(-9px);box-shadow:0 22px 55px rgba(26,58,143,.18)}
 .card-head{padding:22px 18px 14px;text-align:center}
-.bride-head{background:linear-gradient(135deg,var(--royal),#0e2567,var(--mid))}
-.groom-head{background:linear-gradient(135deg,#1E5631,#2d7050,#0e3320)}
+.bride-head{background:linear-gradient(135deg,#1E5631,#2d7050,#0e3320)}
+.groom-head{background:linear-gradient(135deg,var(--royal),#0e2567,var(--mid))}
 .portrait-wrap{width:125px;height:182px;margin:0 auto 12px;border-radius:10px;overflow:hidden;cursor:pointer}
 .portrait-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
 .portrait-wrap:hover img{transform:scale(1.06)}
@@ -237,7 +236,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 #date-reveal .tel-sub{color:var(--sky)}
 .dr-sub{font-family:'Dancing Script',cursive;font-size:.95rem;color:rgba(212,175,55,.65);margin-top:5px}
 .lotus-stage{display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto}
-/* Diya reveal */
 .diya-stage{display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto}
 .diya-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;cursor:pointer;position:relative;padding:20px}
 .diya-emoji-wrap{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
@@ -249,7 +247,6 @@ nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8p
 .diya-hint{display:flex;flex-direction:column;align-items:center;gap:4px;transition:opacity .5s ease}
 .dh-label{font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,175,55,.65);animation:tapPulse 2s ease infinite}
 .dh-tel{font-family:'Noto Sans Telugu',serif;font-size:.82rem;color:rgba(212,175,55,.45)}
-/* Date text fades up after bloom */
 .date-info-wrap{max-width:480px;margin:32px auto 0;text-align:center;opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;pointer-events:none}
 .date-info-wrap.revealed{opacity:1;transform:translateY(0);pointer-events:auto}
 .drt-day{font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--sky);margin-bottom:4px;display:block}
@@ -523,32 +520,32 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
   </div>
   <div class="couple-wrap">
     <div class="char-card reveal-l">
-      <div class="card-head bride-head">
-        <div class="portrait-wrap" id="bride-port"><img src="Groom.png" alt="Aditya"></div>
+      <div class="card-head groom-head">
+        <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
         <div class="card-name">Aditya</div>
         <div class="card-role">The Groom · వరుడు</div>
       </div>
       <div class="card-body">
         <ul class="fun-facts">
-          <li><span class="fact-icon">🍛</span><div><span class="fact-label">Favourite Food</span>Idli, Uppidi pindi, Sunni undalu ; </div></li>
+          <li><span class="fact-icon">🍛</span><div><span class="fact-label">Favourite Food</span>Idli, Uppidi pindi, Sunni undalu</div></li>
           <li><span class="fact-icon">🎨</span><div><span class="fact-label">Hobbies</span>Learning</div></li>
-          <li><span class="fact-icon">😄</span><div><span class="fact-label">Known For</span>His charming smile & warm laughter</div></li>
-          <li><span class="fact-icon">🏡</span><div><span class="fact-label">His Dream</span> To Stand at unreachable position</div></li>
+          <li><span class="fact-icon">😄</span><div><span class="fact-label">Known For</span>His charming smile &amp; warm laughter</div></li>
+          <li><span class="fact-icon">🏡</span><div><span class="fact-label">His Dream</span>To stand at unreachable position</div></li>
         </ul>
       </div>
     </div>
     <div class="char-card reveal-r">
-      <div class="card-head groom-head">
-        <div class="portrait-wrap" id="groom-port"><img src="bride.png" alt="Srivalli"></div>
+      <div class="card-head bride-head">
+        <div class="portrait-wrap" id="bride-port"><img src="bride.png" alt="Srivalli"></div>
         <div class="card-name">Srivalli</div>
         <div class="card-role">The Bride · వధువు</div>
       </div>
       <div class="card-body">
         <ul class="fun-facts">
-          <li><span class="fact-icon">🍅</span><div><span class="fact-label">Favourite Food</span>Rasagulla & Chocolates</div></li>
-          <li><span class="fact-icon">🚴</span><div><span class="fact-label">Hobbies</span>Learning New things</div></li>
-          <li><span class="fact-icon">😄</span><div><span class="fact-label">Known For</span>Her Cute and admirable Smile and Face</div></li>
-          <li><span class="fact-icon">⚡</span><div><span class="fact-label">Her Dream</span> To Support her partner </div></li>
+          <li><span class="fact-icon">🍅</span><div><span class="fact-label">Favourite Food</span>Rasagulla &amp; Chocolates</div></li>
+          <li><span class="fact-icon">🚴</span><div><span class="fact-label">Hobbies</span>Learning new things</div></li>
+          <li><span class="fact-icon">😄</span><div><span class="fact-label">Known For</span>Her cute and admirable smile and face</div></li>
+          <li><span class="fact-icon">⚡</span><div><span class="fact-label">Her Dream</span>To support her partner</div></li>
         </ul>
       </div>
     </div>
@@ -671,7 +668,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="cer-card reveal" style="transition-delay:.05s"><span class="cer-icon">📅</span><div class="cer-label">Date</div><div class="cer-val">28 August 2026</div><div class="cer-sub">Friday</div></div>
     <div class="cer-card reveal" style="transition-delay:.1s"><span class="cer-icon">🕐</span><div class="cer-label">Muhurtham</div><div class="cer-val">06:30 PM</div><div class="cer-sub">ముహూర్తం</div></div>
     <div class="cer-card reveal" style="transition-delay:.15s"><span class="cer-icon">📍</span><div class="cer-label">Venue</div><div class="cer-val">Lakshmi Hari Priya Convention</div><div class="cer-sub">Mogalthur, Andhra Pradesh</div></div>
-    <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Reception</div><div class="cer-val">Lunch &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
+    <div class="cer-card reveal" style="transition-delay:.2s"><span class="cer-icon">🍽️</span><div class="cer-label">Reception</div><div class="cer-val">Dinner &amp; Blessings</div><div class="cer-sub">Following ceremony</div></div>
     <div class="cer-card reveal" style="transition-delay:.25s"><span class="cer-icon">🎊</span><div class="cer-label">Dress Code</div><div class="cer-val">Traditional Silk</div><div class="cer-sub">Celebration colours</div></div>
   </div>
   <div class="rituals-wrap reveal" style="transition-delay:.3s">
@@ -778,8 +775,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <button class="ln-close" id="ln-close">✕</button>
     <span class="ln-icon">💌</span>
     <h3 class="ln-title">A Secret Note</h3>
-    <p class="ln-text">"To Aditya — you are the Idli, Uppidi pindi, Sunni undalu  to my Tomato Pappu,<br>the frangipani in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
-    <p class="ln-sig">— Your Srivalli 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
+    <p class="ln-text">"To Srivalli — you are the Rasagulla &amp; Chocolates to my Idli, Uppidi pindi, Sunni undalu,<br>the frangipani in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
+    <p class="ln-sig">— Your Aditya 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
   </div>
 </div>
 
@@ -791,12 +788,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 function $(id){return document.getElementById(id)}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-const PHOTOS=(window.Reception_CONFIG&&window.Reception_CONFIG.photos)||[];
-const MUSIC=window.Reception_CONFIG&&window.Reception_CONFIG.musicFile;
-const WED=new Date(2026,7,16,0,24,0);
+const PHOTOS=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.photos)||(window.Reception_CONFIG&&window.Reception_CONFIG.photos)||[];
+const MUSIC=(window.WEDDING_CONFIG&&window.WEDDING_CONFIG.musicFile)||(window.Reception_CONFIG&&window.Reception_CONFIG.musicFile);
+const WED=new Date(2026,7,28,18,30,0); // August 28, 2026 at 6:30 PM
 let cdInt=null, musicOn=false, musicStarted=false;
 
-/* ── stars (shared, lightweight RAF) ── */
+/* ── stars ── */
 function initStars(id,n){
   const c=$(id);if(!c)return;
   const ctx=c.getContext('2d');
@@ -812,7 +809,6 @@ function initStars(id,n){
   window.addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();make();draw()});
 }
 
-/* ── loading ── */
 /* ── temple door intro ── */
 function showDoors(){
   const ds=$('door-screen');
@@ -821,16 +817,15 @@ function showDoors(){
   setTimeout(()=>{ds.classList.add('hide')},3150);
   setTimeout(()=>{ds.style.display='none';showScroll()},3850);
 }
+
 /* ── papyrus scroll ── */
 function showScroll(){
   const ss=$('scroll-screen');
   initStars('sc-stars',80);
-  // fade in + drop entrance
   setTimeout(()=>{ss.style.opacity='1'},30);
   const wrap=$('scroll-wrap'),paper=$('scroll-paper'),bot=$('bot-roller'),
         tWrap=$('thread-wrap'),tLine=$('thread-line'),enterBtn=$('scroll-enter');
   wrap.classList.add('scroll-enter-anim');
-  // start music on first scroll interaction
   wrap.addEventListener('touchstart',()=>{
     if(MUSIC&&!musicStarted){
       const a=$('bg-audio');a.src=MUSIC;a.currentTime=0;
@@ -897,7 +892,7 @@ function revealMain(){
   initFireworks();
 }
 
-/* ── hero petals (low-count, stops when off-screen) ── */
+/* ── hero petals ── */
 function initHeroPetals(){
   const c=$('hero-petals');if(!c)return;
   const ctx=c.getContext('2d');
@@ -927,7 +922,7 @@ function initNav(){
   qq('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})}));
 }
 
-/* ── scroll reveal (pure IntersectionObserver — zero GSAP overhead) ── */
+/* ── scroll reveal ── */
 function initScrollReveal(){
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   qq('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
@@ -942,7 +937,6 @@ function initDiyaReveal(){
     if(lit)return;lit=true;
     wrap.classList.add('lit');
     if(hint)hint.style.opacity='0';
-    // sparkle burst from diya center
     const cx=wrap.offsetWidth/2,cy=wrap.offsetHeight/2;
     for(let i=0;i<20;i++){
       const sp=document.createElement('div');
@@ -973,15 +967,6 @@ function startMangalsutra(){
   gsap.to('#mthali',{opacity:1,scale:1.15,duration:.6,delay:2.7,ease:'back.out(1.7)',transformOrigin:'center center'});
   gsap.to('#mthali',{scale:1,duration:.4,delay:3.3});
 }
-function quickRevealDate(){
-  const w=$('diya-wrap');if(w)w.classList.add('lit');
-  const h=$('diya-hint');if(h)h.style.display='none';
-  const i=$('date-info-wrap');if(i)i.classList.add('revealed');
-  qq('#mt1,#mt2').forEach(el=>el.style.strokeDashoffset='0');
-  qq('.mb,.mgb').forEach(el=>el.style.opacity='1');
-  const th=$('mthali');if(th)th.style.opacity='1';
-  const cd=$('dr-cd');if(cd)cd.classList.add('show');
-}
 
 /* ── countdown ── */
 function startCountdown(){
@@ -996,7 +981,7 @@ function startCountdown(){
   tick();cdInt=setInterval(tick,1000);
 }
 
-/* ── book gallery (3-D page flip, no extra deps) ── */
+/* ── book gallery ── */
 function initGalleryBook(){
   const card=$('book-card'),front=$('bk-front'),back=$('bk-back'),
         prev=$('bk-prev'),next=$('bk-next'),count=$('bk-count'),vp=$('book-viewport');
@@ -1007,14 +992,14 @@ function initGalleryBook(){
   function face(el,idx){
     if(idx<0){
       el.className='bk-face bk-cover';
-      el.innerHTML=`<div class="bk-cover-border"></div><div class="bk-cover-om">🕉️</div><div class="bk-cover-title">Our Moments</div><div class="bk-cover-names">Aditya ♥ Srivalli</div><div class="bk-cover-hint"><span style="font-size:1.4rem">👉</span><span>Tap or swipe to open</span></div>`;
+      el.innerHTML=`<div class="bk-cover-border"></div><div class="bk-cover-om">🕉️</div><div class="bk-cover-title">Our Moments</div><div class="bk-cover-names">ADITYA ♥ SRIVALLI</div><div class="bk-cover-hint"><span style="font-size:1.4rem">👉</span><span>Tap or swipe to open</span></div>`;
     }else if(idx>=TOTAL){
       el.className='bk-face';
       el.style.cssText='background:linear-gradient(160deg,#EEF2FF,#DDE4F0)';
       el.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;text-align:center;padding:20px"><div style="font-size:2.2rem">🕉️</div><div style="font-family:Cinzel Decorative,serif;font-size:.8rem;color:var(--royal)">End of Gallery</div><div style="font-family:Dancing Script,cursive;font-size:1rem;color:var(--dgold)">But the story just began...</div></div>`;
     }else{
       el.className='bk-face';el.style.cssText='';
-      el.innerHTML=`<img class="bk-photo" src="Couplepics/${PHOTOS[idx]}" alt="Photo ${idx+1}" loading="lazy"><div class="bk-photo-caption">Aditya ♥ Srivalli · Memory ${idx+1}</div>`;
+      el.innerHTML=`<img class="bk-photo" src="Couplepics/${PHOTOS[idx]}" alt="Photo ${idx+1}" loading="lazy"><div class="bk-photo-caption">ADITYA ♥ SRIVALLI · Memory ${idx+1}</div>`;
     }
   }
 
@@ -1030,7 +1015,6 @@ function initGalleryBook(){
     const nxt=cur+dir;
     if(nxt<-1||nxt>TOTAL)return;
     flip=true;
-    // Set back face to destination
     face(back,nxt);
     back.style.transform='rotateY(180deg)';
     card.classList.add('flipped');
@@ -1057,7 +1041,7 @@ function initGalleryBook(){
   vp.addEventListener('touchend',e=>{const dx=sx-e.changedTouches[0].clientX;if(Math.abs(dx)>40)doFlip(dx>0?1:-1)},{passive:true});
 }
 
-/* ── fireworks (throttled, stops when off-screen) ── */
+/* ── fireworks ── */
 function initFireworks(){
   const c=$('fw-canvas');if(!c)return;
   const ctx=c.getContext('2d');
@@ -1083,7 +1067,7 @@ function initFireworks(){
 /* ── calendar ICS ── */
 function initCalBtn(){
   $('cal-btn').addEventListener('click',()=>{
-    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Reception','DTSTART:20260816T002400','DTEND:20260816T120000','LOCATION:Lakshmi Hari Priya Convention NH-26\\, Jeypore\\, Odisha 764001','DESCRIPTION:Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Reception','DTSTART:20260828T183000','DTEND:20260828T230000','LOCATION:Lakshmi Hari Priya Convention\\, Mogalthur\\, Andhra Pradesh 534281','DESCRIPTION:Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
     a.download='Aditya-Srivalli-Reception.ics';a.click();URL.revokeObjectURL(a.href);
@@ -1107,7 +1091,7 @@ function initLoveNote(){
 function initMusic(){
   const fab=$('music-fab'),audio=$('bg-audio');
   if(!MUSIC){fab.style.opacity='.4';return}
-  if(!musicStarted)audio.src=MUSIC; // avoid restarting a track already begun via the scroll gesture
+  if(!musicStarted)audio.src=MUSIC;
   audio.volume=.42;
   function toggle(){
     if(!musicStarted){musicStarted=true;audio.currentTime=0;audio.play().then(()=>{audio.currentTime=0;musicOn=true;update()}).catch(()=>{})}
@@ -1117,7 +1101,6 @@ function initMusic(){
   function update(){$('micon').textContent=musicOn?'🎵':'🔇';$('mlbl').textContent=musicOn?'music':'muted';fab.classList.toggle('playing',musicOn)}
   fab.addEventListener('click',toggle);
   fab.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
-  // music also starts on any user click fallback (if scroll touchstart missed)
   document.addEventListener('click',()=>{if(MUSIC&&!musicStarted)toggle()},{once:true,passive:true});
 }
 
