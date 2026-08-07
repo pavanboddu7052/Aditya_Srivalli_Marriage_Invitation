@@ -779,7 +779,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <span class="ln-icon">💌</span>
     <h3 class="ln-title">A Secret Note</h3>
     <p class="ln-text">"To Aditya — you are the Bobbatlu to my Tomato Pappu,<br>the frangipani in my garden, the doodle on my heart.<br>I choose you. Every single day. Forever."</p>
-    <p class="ln-sig">— Your Pavan 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
+    <p class="ln-sig">— Your Srivalli 🚴 &nbsp;·&nbsp; Always &amp; forever</p>
   </div>
 </div>
 
@@ -1007,14 +1007,14 @@ function initGalleryBook(){
   function face(el,idx){
     if(idx<0){
       el.className='bk-face bk-cover';
-      el.innerHTML=`<div class="bk-cover-border"></div><div class="bk-cover-om">🕉️</div><div class="bk-cover-title">Our Moments</div><div class="bk-cover-names">Aditya ♥ Pavan</div><div class="bk-cover-hint"><span style="font-size:1.4rem">👉</span><span>Tap or swipe to open</span></div>`;
+      el.innerHTML=`<div class="bk-cover-border"></div><div class="bk-cover-om">🕉️</div><div class="bk-cover-title">Our Moments</div><div class="bk-cover-names">Aditya ♥ Srivalli</div><div class="bk-cover-hint"><span style="font-size:1.4rem">👉</span><span>Tap or swipe to open</span></div>`;
     }else if(idx>=TOTAL){
       el.className='bk-face';
       el.style.cssText='background:linear-gradient(160deg,#EEF2FF,#DDE4F0)';
       el.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;text-align:center;padding:20px"><div style="font-size:2.2rem">🕉️</div><div style="font-family:Cinzel Decorative,serif;font-size:.8rem;color:var(--royal)">End of Gallery</div><div style="font-family:Dancing Script,cursive;font-size:1rem;color:var(--dgold)">But the story just began...</div></div>`;
     }else{
       el.className='bk-face';el.style.cssText='';
-      el.innerHTML=`<img class="bk-photo" src="Couplepics/${PHOTOS[idx]}" alt="Photo ${idx+1}" loading="lazy"><div class="bk-photo-caption">Aditya ♥ Pavan · Memory ${idx+1}</div>`;
+      el.innerHTML=`<img class="bk-photo" src="Couplepics/${PHOTOS[idx]}" alt="Photo ${idx+1}" loading="lazy"><div class="bk-photo-caption">Aditya ♥ Srivalli · Memory ${idx+1}</div>`;
     }
   }
 
@@ -1083,10 +1083,10 @@ function initFireworks(){
 /* ── calendar ICS ── */
 function initCalBtn(){
   $('cal-btn').addEventListener('click',()=>{
-    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Pavan Wedding','DTSTART:20260816T002400','DTEND:20260816T120000','LOCATION:JCN COMFORTS NH-26\\, Jeypore\\, Odisha 764001','DESCRIPTION:Wedding of Aditya & Pavan','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Wedding','DTSTART:20260816T002400','DTEND:20260816T120000','LOCATION:JCN COMFORTS NH-26\\, Jeypore\\, Odisha 764001','DESCRIPTION:Wedding of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download='Aditya-Pavan-Wedding.ics';a.click();URL.revokeObjectURL(a.href);
+    a.download='Aditya-Srivalli-Wedding.ics';a.click();URL.revokeObjectURL(a.href);
   });
 }
 
