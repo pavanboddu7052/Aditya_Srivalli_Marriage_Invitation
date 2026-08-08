@@ -844,7 +844,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 function $(id){return document.getElementById(id)}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-// Fallback music path so it plays matching your actual GitHub filename
+// Fallback music path so it plays even if photos.js config is missing
 const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
 const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || "Wedding.mp3";
 
@@ -888,11 +888,7 @@ function showScroll(){
   const wrap=$('scroll-wrap'),paper=$('scroll-paper'),bot=$('bot-roller'),
         tWrap=$('thread-wrap'),tLine=$('thread-line'),enterBtn=$('scroll-enter');
   wrap.classList.add('scroll-enter-anim');
-  wrap.addEventListener('touchstart',()=>{
-    if(MUSIC && !musicStarted){
-      startAudio();
-    }
-  },{once:true,passive:true});
+
   const FULL=Math.min(400,Math.floor(window.innerHeight*(window.innerWidth<=768?.5:.58)));
   let startY=0,drag=false,prog=0,done=false;
 
@@ -904,7 +900,9 @@ function showScroll(){
     tWrap.style.top=(44+h)+'px';
     tLine.style.height=(28+p*35)+'px';
   }
-  function onStart(y){drag=true;startY=y}
+  function onStart(y){
+    drag=true;startY=y;
+  }
   function onMove(y){
     if(!drag||done)return;
     const dy=y-startY;startY=y;
@@ -1262,12 +1260,14 @@ function initMusic(){
       toggle();
     }
   });
-
-  // Enable audio on first document interaction to bypass browser autoplay policies
-  document.addEventListener('click', () => {
-    if (!musicStarted) startAudio();
-  }, {once: true, passive: true});
 }
+
+// Global user gesture listeners for touch, drag, tap, or click anywhere on the page
+['click', 'touchstart', 'touchmove', 'pointerdown', 'mousedown'].forEach(eventType => {
+  document.addEventListener(eventType, () => {
+    if (!musicStarted) startAudio();
+  }, { passive: true });
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   showDoors();
