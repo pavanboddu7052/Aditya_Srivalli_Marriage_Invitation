@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
- <!-- Open Graph / WhatsApp Preview Meta Tags -->
+<!-- Open Graph / WhatsApp Preview Meta Tags -->
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://github.com/pavanboddu7052/Aditya_Srivalli_Marriage_Invitation/blob/main/aadhar_updated.jpeg?raw=true" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://pavanboddu7052.github.io/Aditya_Srivalli_Marriage_Invitation/" />
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>బొడ్డు వారి వివాహం మరియు రిసెప్షన్ ఆహ్వానం | ADITYA ❤️ SRIVALLI</title>
 <script src="Couplepics/photos.js"></script>
@@ -413,9 +413,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 #mlbl{font-size:.42rem;color:var(--gold);font-family:'Lato',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:1px}
 @keyframes fabRing{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 0 rgba(212,175,55,.5)}65%{box-shadow:0 4px 16px rgba(212,175,55,.4),0 0 0 13px rgba(212,175,55,0)}}
 
-/* FIXED SECRET NOTE MODAL STYLING */
+/* SECRET NOTE MODAL STYLING */
 #love-modal{position:fixed;inset:0;z-index:9800;background:rgba(0,0,0,.65);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:20px}
-#love-modal.active{display:flex}
+#love-modal.active{display:flex !important}
 .ln-card{background:linear-gradient(160deg,var(--ivory),var(--cream));border:2px solid var(--gold);border-radius:16px;padding:38px 30px;max-width:450px;width:100%;text-align:center;position:relative;box-shadow:0 18px 70px rgba(26,58,143,.3);animation:lnIn .45s cubic-bezier(.2,1.4,.4,1) forwards}
 @keyframes lnIn{from{opacity:0;transform:scale(.84) translateY(18px)}to{opacity:1;transform:none}}
 .ln-close{position:absolute;top:11px;right:14px;font-size:1.3rem;color:var(--royal);cursor:pointer;background:none;border:none}
@@ -528,8 +528,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       <div class="hero-pill"><span>💐</span><span>Reception: Friday, 28 August 2026 &nbsp;·&nbsp; 06:30 PM</span></div>
 
       <a href="https://www.youtube.com/watch?v=FbXOsVByKmk&list=RDFbXOsVByKmk&start_radio=1" target="_blank" rel="noopener noreferrer" class="yt-live-btn">
-    <img src="youtube.jpg" alt="YouTube Live" />
-    <span>WATCH LIVE</span>
+        <img src="youtube.jpg" alt="YouTube Live" />
+        <span>WATCH LIVE</span>
       </a>
     </div>
   </div>
@@ -544,7 +544,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
     <div class="gold-line"></div>
   </div>
   <div class="couple-wrap">
-    <!-- Groom Card with unique ID -->
+    <!-- Groom Card -->
     <div class="char-card reveal-l">
       <div class="card-head groom-head">
         <div class="portrait-wrap" id="groom-port"><img src="Groom.png" alt="Aditya"></div>
@@ -559,7 +559,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
         </ul>
       </div>
     </div>
-    <!-- Bride Card with unique ID -->
+    <!-- Bride Card -->
     <div class="char-card reveal-r">
       <div class="card-head bride-head">
         <div class="portrait-wrap" id="bride-port"><img src="bride.png" alt="Srivalli"></div>
@@ -575,8 +575,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-  <!-- Clickable Secret Note trigger -->
-   <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
+  <p class="love-hint reveal" id="love-trigger" style="transition-delay:.4s">🕉️ &nbsp; A secret note is hidden here — tap to discover &nbsp; 🕉️</p>
 </section>
 
 <!-- DATE REVEAL -->
@@ -801,10 +800,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-    <div class="btn-group reveal" style="transition-delay:.2s">
-      <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
+  <div class="btn-group reveal" style="transition-delay:.2s; margin-top:20px;">
+    <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
     <a class="btn btn-pri" href="https://maps.app.goo.gl/7bPp9ii86fikUg7R9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A Stay for Bride guests)</a>
-    </div>
   </div>
 </section>
 
@@ -880,16 +878,23 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
 <script>
 (function(){
 'use strict';
-function $(id){return document.getElementById(id)}
+function $(id){
+  if(typeof id !== 'string') return null;
+  return document.getElementById(id.trim());
+}
 function qq(s,c){return[...(c||document).querySelectorAll(s)]}
 
-// Fallback music path so it plays even if photos.js config is missing
-const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
-const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || "Wedding.mp3";
+const PHOTOS = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.photos) || 
+               (window.Marriage_CONFIG && window.Marriage_CONFIG.photos) || 
+               (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.photos) || [];
 
-// TARGET DATES (Months are 0-indexed: 7 = August)
-const WED_DATE = new Date(2026, 7, 27, 23, 39, 0); // Aug 27, 2026, 11:39 PM
-const REC_DATE = new Date(2026, 7, 28, 18, 30, 0); // Aug 28, 2026, 06:30 PM
+const MUSIC = (window.WEDDING_CONFIG && window.WEDDING_CONFIG.musicFile) || 
+              (window.Marriage_CONFIG && window.Marriage_CONFIG.musicFile) || 
+              (window.RECEPTION_CONFIG && window.RECEPTION_CONFIG.musicFile) || 
+              "Wedding.mp3";
+
+const WED_DATE = new Date(2026, 7, 27, 23, 39, 0);
+const REC_DATE = new Date(2026, 7, 28, 18, 30, 0);
 
 let cdInt = null;
 let musicOn = false, musicStarted = false;
@@ -964,14 +969,13 @@ function showScroll(){
   }
   wrap.addEventListener('touchstart',e=>onStart(e.touches[0].clientY),{passive:true});
   wrap.addEventListener('touchmove', e=>onMove(e.touches[0].clientY),{passive:true});
-  wrap.addEventListener('touchend',   onEnd,{passive:true});
+  wrap.addEventListener('touchend',  onEnd,{passive:true});
   wrap.addEventListener('mousedown', e=>onStart(e.clientY));
   document.addEventListener('mousemove',e=>{if(drag)onMove(e.clientY)});
   document.addEventListener('mouseup', ()=>{if(drag)onEnd()});
   wrap.addEventListener('dblclick',complete);
 }
 window.enterMain=function(){
-  // Force audio to start/continue when user clicks 'Enter the Celebration'
   forceStartAudio();
   const ss=$('scroll-screen');ss.classList.add('out');
   setTimeout(()=>{ss.style.display='none';revealMain()},1050);
@@ -985,7 +989,6 @@ function revealMain(){
   initScrollReveal();
   initDiyaReveal();
   initGalleryBook();
-  initCalBtn();
   initLoveNote();
   initMusic();
   startCountdown();
@@ -1192,57 +1195,53 @@ function initFireworks(){
   window.addEventListener('resize',resize);
 }
 
-/* ── calendar ICS ── */
-function initCalBtn(){
-  const btn = $('cal-btn');
-  if(!btn) return;
-  btn.addEventListener('click',()=>{
-    const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Marriage & Reception','DTSTART:20260827T233900','DTEND:20260828T230000','LOCATION:Palakollu & Mogalthur\\, Andhra Pradesh','DESCRIPTION:Marriage & Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
-    const a=document.createElement('a');
-    a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download='Aditya-Srivalli-Wedding.ics';a.click();URL.revokeObjectURL(a.href);
-  });
-}
-
-/* ── FIXED SECRET NOTE MODAL ── */
+/* ── SECRET NOTE MODAL ── */
 function initLoveNote(){
   const modal = $('love-modal');
   if(!modal) return;
 
-  function open(){
+  function openModal(e){
+    if(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-  function close(){
+
+  function closeModal(e){
+    if(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  // Bind trigger buttons securely
   const triggers = [$('love-trigger'), $('groom-port'), $('bride-port')];
   triggers.forEach(el => {
     if(el) {
-      el.addEventListener('click', open);
-      el.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        open();
-      }, {passive: false});
+      el.addEventListener('click', openModal);
+      el.addEventListener('touchend', openModal, {passive: false});
     }
   });
 
   const closeBtn = $('ln-close');
-  if(closeBtn) closeBtn.addEventListener('click', close);
+  if(closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('touchend', closeModal, {passive: false});
+  }
   
   modal.addEventListener('click', function(e){
-    if(e.target === modal) close();
+    if(e.target === modal) closeModal(e);
   });
   
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && modal.classList.contains('active')) close();
+    if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 }
 
-/* ── FIXED MUSIC FAB & AUDIO ── */
+/* ── MUSIC CONTROLLER ── */
 function forceStartAudio() {
   const audio = $('bg-audio');
   if (!audio) return;
