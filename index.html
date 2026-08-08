@@ -167,7 +167,7 @@ img{max-width:100%;display:block}
 /* MAIN PAGE & SECTIONS */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
 nav.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(12px);padding:8px 40px;box-shadow:0 2px 18px rgba(0,0,0,.4)}
-.nav-logo{font-family:'Noto Sans Telugu',serif;font-size:.95rem;color:var(--gold);text-decoration:none}
+.nav-logo{font-family:'Noto Sans Telugu',serif;font-size:.95rem;color:#006400;text-decoration:none}
 .nav-links{display:flex;gap:20px;list-style:none}
 .nav-links a{color:var(--gold);text-decoration:none;font-size:.73rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:color .3s}
 .nav-links a:hover{color:#fff}
@@ -762,7 +762,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.48);text-align:center;padd
       </div>
     </div>
   </div>
-   <div class="btn-group reveal" style="transition-delay:.2s">
+    <div class="btn-group reveal" style="transition-delay:.2s">
       <a class="btn btn-pri" href="https://maps.app.goo.gl/jq5gWhsUFbQXZk1u6" target="_blank" rel="noopener">📍 Get Directions to Krishna Nilayam (Groom Residence)</a>
     <a class="btn btn-pri" href="https://maps.app.goo.gl/7bPp9ii86fikUg7R9" target="_blank" rel="noopener">📍 Get Directions to Star Hotel (A Stay for Bride guests)</a>
     </div>
@@ -1154,7 +1154,9 @@ function initFireworks(){
 
 /* ── calendar ICS ── */
 function initCalBtn(){
-  $('cal-btn').addEventListener('click',()=>{
+  const btn = $('cal-btn');
+  if(!btn) return;
+  btn.addEventListener('click',()=>{
     const ics=['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT','SUMMARY:Aditya & Srivalli Marriage & Reception','DTSTART:20260827T233900','DTEND:20260828T230000','LOCATION:Palakollu & Mogalthur\\, Andhra Pradesh','DESCRIPTION:Marriage & Reception of Aditya & Srivalli','END:VEVENT','END:VCALENDAR'].join('\r\n');
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
