@@ -932,7 +932,6 @@ function showScroll(){
   wrap.addEventListener('dblclick',complete);
 }
 window.enterMain=function(){
-  // Force audio to start/continue when user clicks 'Enter the Celebration'
   forceStartAudio();
   const ss=$('scroll-screen');ss.classList.add('out');
   setTimeout(()=>{ss.style.display='none';revealMain()},1050);
