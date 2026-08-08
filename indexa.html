@@ -932,6 +932,8 @@ function showScroll(){
   wrap.addEventListener('dblclick',complete);
 }
 window.enterMain=function(){
+  // Force audio to start/continue when user clicks 'Enter the Celebration'
+  forceStartAudio();
   const ss=$('scroll-screen');ss.classList.add('out');
   setTimeout(()=>{ss.style.display='none';revealMain()},1050);
 };
@@ -1202,23 +1204,25 @@ function initLoveNote(){
 }
 
 /* ── FIXED MUSIC FAB & AUDIO ── */
-function startAudio() {
+function forceStartAudio() {
   const audio = $('bg-audio');
-  const fab = $('music-fab');
   if (!audio) return;
 
-  if (!musicStarted) {
+  if (!audio.src || audio.src === "" || audio.src.endsWith("/")) {
     audio.src = MUSIC;
-    audio.volume = 0.42;
-    musicStarted = true;
   }
+  audio.volume = 0.42;
 
-  audio.play().then(() => {
-    musicOn = true;
-    updateMusicUI();
-  }).catch(err => {
-    console.log("Audio play blocked until user gesture:", err);
-  });
+  var playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      musicStarted = true;
+      musicOn = true;
+      updateMusicUI();
+    }).catch(err => {
+      console.log("Autoplay blocked or interrupted:", err);
+    });
+  }
 }
 
 function updateMusicUI() {
@@ -1235,21 +1239,13 @@ function initMusic(){
   const audio = $('bg-audio');
   if (!fab || !audio) return;
 
-  audio.src = MUSIC;
-  audio.volume = 0.42;
-
   function toggle(){
-    if (!musicStarted) {
-      startAudio();
-    } else if (musicOn) {
+    if (!musicOn) {
+      forceStartAudio();
+    } else {
       audio.pause();
       musicOn = false;
       updateMusicUI();
-    } else {
-      audio.play().then(() => {
-        musicOn = true;
-        updateMusicUI();
-      });
     }
   }
 
@@ -1262,10 +1258,10 @@ function initMusic(){
   });
 }
 
-// Global user gesture listeners for touch, drag, tap, or click anywhere on the page
+// Global user gesture listeners so touch, tap, drag, or click anywhere ensures music stays on
 ['click', 'touchstart', 'touchmove', 'pointerdown', 'mousedown'].forEach(eventType => {
   document.addEventListener(eventType, () => {
-    if (!musicStarted) startAudio();
+    if (!musicOn) forceStartAudio();
   }, { passive: true });
 });
 
